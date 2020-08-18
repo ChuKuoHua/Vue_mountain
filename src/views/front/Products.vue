@@ -7,7 +7,7 @@
       <loading :active.sync="isLoading">
         <i class="loading-box"></i>
       </loading>
-      <div class="position-relative py-4 d-flex">
+      <div class="position-relative pt-4 pb-5 mb-4 d-flex">
         <div class="col-md-3">
           <ul
             class="list-group sticky-top"

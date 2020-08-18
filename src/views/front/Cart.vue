@@ -262,19 +262,20 @@ export default {
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/shopping/${id}`;
       this.$http.delete(url)
         .then(() => {
+          this.$bus.$emit('update-total');
           this.getCart();
+          this.isLoading = false;
           Toast.fire({
             title: '商品已刪除',
             icon: 'success',
           });
-          this.isLoading = false;
         })
         .catch(() => {
+          this.isLoading = false;
           Toast.fire({
             title: '商品刪除失敗',
             icon: 'error',
           });
-          this.isLoading = false;
         });
     },
     removeAllCartItem() {
@@ -282,19 +283,21 @@ export default {
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/shopping/all/product`;
       this.$http.delete(url)
         .then(() => {
+          this.$bus.$emit('update-total');
           this.getCart();
           this.cartTotal = 0;
+          this.isLoading = false;
           Toast.fire({
             title: '商品已全部刪除',
             icon: 'success',
           });
-          this.isLoading = false;
+          this.$router.push('/products');
         }).catch(() => {
+          this.isLoading = false;
           Toast.fire({
             title: '商品刪除失敗',
             icon: 'error',
           });
-          this.isLoading = false;
         });
     },
   },
