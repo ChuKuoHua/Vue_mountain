@@ -1,0 +1,79 @@
+.about-banner{
+  @include ban-box;
+  background-position: center;
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/0zM7Gdr1mJ85LaWqeyhCkFRvTKQ2PZwHjuAYynGxUx6QgxCHztwpZmqToo7YODonlO460fvgRaa2m4r97R87340W76kyoFbuWOOHg2XWaVj1tGw290i9hIqNFa3wayga.jpg');
+  height: 50vh;
+  .banner-tit{
+    position: absolute;
+    font-size: 28px;
+    right: 155px;
+    top: 160px;
+    color: #f7f7f7;
+    text-shadow: 0 3px 10px #020202;
+    letter-spacing: 3px;
+    .top-text{
+      transform: translateX(-93px);
+      margin-bottom: 20px;
+    }
+  }
+}
+.about-content{
+  background: $white;
+  display: flex;
+  align-items: center;
+  .left-content-bg{
+    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/b8BQklA842P4ysgiCUDUygWbixeQBizBenrennyFKje7GpvpqXdpSFx7FkzGWeGxXkXpg6id01W0TIoE770x1btrZc5aAOpHutoMupE709cENrnG6ilF7zKIgOdowBli.png');
+    height: 450px;
+    opacity: .8;
+    background-position: center;
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+  }
+  img{
+    height: 280px;
+    position: absolute;
+    opacity: 0;
+    width: 300px;
+    bottom: 84px;
+    right: 0px;
+    box-shadow: 0 0 5px;
+    transition: all 1s;
+    &.active{
+      z-index: 10;
+      opacity: 1;
+      right: -95px;
+    }
+  }
+  .right-content-box{
+    border: 3px solid $dark;
+    z-index: 0;
+    padding: 3em 5em;
+    margin: 0 30px;
+  }
+  .right-content{
+    padding: 0px 18px;
+    text-align: justify;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+}
+.about-footer{
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Mu7xXLkyaBsS0vl98VrHQEYsN0HKsL2pDgypK2zq1vJXvWT2jzQnHz9oF8hnYqeeq0eXzyDCLILY9F0qeUchP5X3JF6lRCG8j467Wb1vHQFwQUrANjiHLimtuFruIYLh.jpg');
+  display: flex;
+  justify-content: center;
+  padding: 5em;
+  background-position: center;
+  background-size: cover;
+  height: 330px;
+  h2{
+    text-shadow: 1px 1px 5px #474843;
+    font-family: 'Audiowide', cursive;
+    font-size: 36px;
+  }
+  h3{
+    font-size: 28px;
+  }
+}

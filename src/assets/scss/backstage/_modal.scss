@@ -1,0 +1,132 @@
+.modal{
+  font-family: $MJ;
+  letter-spacing: 1px;
+}
+.modal-header-color{
+  background-color: $Cyan; 
+  
+}
+.hr-my{
+  margin-top: .6rem;
+  margin-bottom: 1.2rem;
+}
+// 產品 Modal 頁面
+.modal-content{
+  border: 0;
+  overflow: hidden;
+}
+.modal-header{
+  border-bottom: 0px;
+}
+.modal-title{
+  font-size: 1.25rem;
+  color: aliceblue;
+  letter-spacing: 5px;
+}
+.modal-label{
+  font-weight: bold;
+  color: #34383a;
+  text-align: center;
+  letter-spacing: 5px;
+  padding: 3px;
+  width: 100%;
+  border-radius: 3%;
+}
+.form-check-label {
+  margin-top: 3px;
+}
+.form-input-border{
+  border: 0;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0%;
+  &:focus{
+    border-color: #3d3f41;
+  }
+}
+.d-shadow{
+  box-shadow: 0 0 5px inset;
+}
+.modal-footer-col{
+  background-image: linear-gradient(135deg, $Cyan 45%, #7b414100);
+  background-image: -webkit-linear-gradient(315deg, $Cyan 45%, #7b414100);
+  background-image: -o-linear-gradient(315deg, $Cyan 45%, #7b414100);
+}
+.modal-footer{
+  border-top: 0px;
+}
+.modal-btn{
+  font-weight: bold;
+  border: 1px solid;
+  &:hover{
+    color: $white;
+  }
+}
+.product-cancel{
+  color: #505458c2;
+  &:hover{
+    border: 1px solid #505458c2;
+    background: #707275c2;
+    box-shadow: 0 0 5px inset #564f4f;
+  }
+}
+.product-certain{
+  color: $org;
+  &:hover{
+    border: 1px solid $org;
+    background: $org;
+    box-shadow: 0 0 5px inset #883708
+  }
+}
+
+// 刪除產品 btn
+.del-mod-color{
+  box-shadow: 0 0 100px inset #c11212;
+}
+.btn-cancel{
+  color: $btn-cancel;
+  @include btn-ami;
+  &:hover{
+    color: $white;
+    background: #767779;
+    outline-color: $white;
+    outline-offset: 15px;
+  }
+}
+.btn-del{
+  color: $btn-del;
+  @include btn-ami;
+  &:hover{
+    color: $white;
+    background: $btn-del;
+    outline-color: $white;
+    outline-offset: 15px;
+  }
+}
+// coupons style
+.coupons-modal-label{
+  text-align: left;
+  font-weight: bold;
+  color: #687173;
+  letter-spacing: 5px;
+  padding: 3px;
+  width: 100%;
+  border-radius: 3%;
+}
+.coupons-modal-footer{
+  background: #4c9db521;
+}
+// order
+.modal-order-header {
+  background-color: #4a757b;
+  box-shadow: 0 1px 5px;
+}
+.modal-order-shadow {
+  box-shadow: 0 0 5px inset;
+}
+// storages
+.del-img-modal{
+  margin: 0 auto 1em auto;
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+}

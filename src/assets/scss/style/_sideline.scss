@@ -1,0 +1,18 @@
+/*-- boder ami --*/
+.sideline{
+  color: $main-col;
+  font-weight: bold;
+}
+.sideline::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 3px;
+  margin: 5px auto 0 auto;
+  background: $main-col;
+  transition: width .5s;
+  clear: both;
+}
+.sideline:hover::after {
+  width: 50%;
+}

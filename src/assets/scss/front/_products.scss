@@ -1,0 +1,141 @@
+$btnColor : #380606;
+$disabled:#272a2b;
+
+.ls-1{
+  letter-spacing: 1px;
+}
+.p-xy-0{
+  padding: 0 !important;
+}
+.ol-bg{
+  background-color: #eaeaea7a;
+}
+.products-banner{
+  @include ban-box;
+  background-position: center bottom;
+  background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/bD13wjLC2c88zeTFaDTJmb1GRrAvKxH9MkEnuZuTlhsl4OJODgDdNo84HVvofktfrNobXqXFRugtoJ5denu1GRanE6XRqlksXdjr55QhmRGE7pBmZUUCsbaXgqYtfkmo.png');
+  h2{
+    @include ban-tit;
+  }
+}
+.breadcrumb-item{
+  a{
+    color: #e0490f;
+  }
+  &.active{
+    color: #676d6d;
+  }
+}
+.sticky-top{
+  top: 70px;
+}
+.list-group-item{
+  letter-spacing: 1px;
+  .list-btn{
+    display: block;
+    color: #000;
+    padding: 1em;
+    &:hover{
+      text-decoration: none;
+    }
+    &.active{
+      background: $dark;
+      color: #fff;
+    }
+  }
+  &.active{
+    background-color: $dark !important;
+    border-color: $dark !important;
+    box-shadow: 0 0 0 !important;
+  }
+  &:hover{
+    box-shadow: 0 0 5px inset #c0d4d3;
+    background-color: #f9fbfb;
+  }
+}
+.card-title{
+  color: #2a2e2d;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 0 !important;
+}
+.card-flex{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 20px 0;
+  overflow: hidden;
+  border-radius: 7px 7px 0 0;
+  color: $dark;
+  background: #fbfbfb;
+  .item-img{
+    height: 220px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 15px inset #c3c3c3;
+    overflow: hidden;
+    position: relative;
+  }  
+  &:hover{
+    box-shadow: 0 5px 10px rgba(0,0,0,.15)!important;
+  }
+  .origin-price-f{
+    font-size:12px;
+    text-decoration:line-through;
+    color: #696262;
+  }
+  .price-color{
+    color: #e26021;
+  }
+  &:hover{
+    .card-btn-box{
+      transform: translateY(0px);
+    }
+  }
+}
+.card-btn-box{
+  display: flex;
+  background: #3d404263;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0px 50px;
+  transition: all .6s;
+  transform: translateX(500px);
+  .btn{
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top:.5em;
+    padding-bottom:.5em;
+  }
+}
+.price-box{
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.subtotal-col{
+  color: #5d5454;
+}
+//表單樣式
+.order-color{
+  background: -webkit-linear-gradient(45deg, #6695bb, #56c1ae);
+  background: -o-linear-gradient(45deg, #6695bb, #56c1ae);
+  background: linear-gradient(45deg, #6695bb, #56c1ae);
+  h5{
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #f5f4f4;
+  }
+}
+.modal-body{
+  letter-spacing: 2px;
+  h4{
+    font-size: 20px;
+  }
+  label{
+    margin-bottom: 5px;
+  }
+}

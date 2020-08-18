@@ -1,0 +1,64 @@
+.login-box{
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Microsoft JhengHei;
+  background-image: url('https://images.unsplash.com/photo-1586399254605-9f70b424b1d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: bottom;
+}
+.login-home{
+  font-size: 20px;
+}
+.login-group{
+  position: relative;
+  box-shadow: 0 1px 5px rgba(0,0,0,.6);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 1.6em;
+  color: white;
+}
+.form-box{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;  
+}
+.form-control{
+  background: rgba(255, 255, 255, 0.8);
+  &:focus,&:active{
+    box-shadow: 0 0 0 0;
+    border-color: #484f56;
+  }
+}
+.form-signin{
+  input{
+    &:focus,&:active{
+      outline:none;
+      box-shadow: 0 0 0 0;
+    }
+  }
+button{
+    &:focus,&:active{
+      outline:none;
+      box-shadow: 0 0 0 0;
+    }
+  }
+}
+.login-home-btn{
+  padding-right: 0px;
+  padding-left: 0px;
+  transition: transform .6s ease-out;
+  transform: rotate(0deg);
+  color: #d1d8de;
+  &:hover{
+    color:#e86518;
+    transform: rotate(360deg);
+  }
+}
+.h-icon-size{
+  font-size: 1.6em;
+}
+

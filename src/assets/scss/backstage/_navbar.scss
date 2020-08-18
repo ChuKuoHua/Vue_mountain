@@ -1,0 +1,36 @@
+.navbar{
+  transition: all 1s;
+  background-color: $light-org;
+  z-index: 200;
+  padding: 10px;
+  box-shadow: 0 0 5px;
+}
+.nav-shadow{
+  box-shadow: 0 0 5px;
+}
+.sign-box{
+  .sign-span{
+    position: absolute;
+    display: none;
+  }
+  .sign-span{
+    right: 19px;
+  }
+  .fa-sign-out-alt{
+    font-size: 20px;
+    @include iconAnimate;
+    top: 6px;
+    right: 24px;
+  }
+  &:hover{
+    .home-span,
+    .sign-span{
+      display: block;
+      font-weight: bold;
+      font-family:Microsoft JhengHei;
+    }
+    .fa-sign-out-alt{
+      transform: translateY(-50px);
+    }
+  }
+}

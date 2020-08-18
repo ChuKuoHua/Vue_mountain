@@ -1,0 +1,134 @@
+.btn-home{
+  font-size: 18px;
+  color: $white;
+  &:hover{    
+    color: $white;
+    text-decoration: underline;
+  }
+}
+.btn-signOut{
+  color: $white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  &:hover{    
+    color: $white;    
+    box-shadow: 0 0 10px inset #f1eded;
+  }
+  &:focus,&:active{
+    outline:none;
+    box-shadow: 0;
+  }
+}
+// 產品列表
+.btn-shopping,.btn-details{
+  font-weight: bolder;
+  color: $white !important;
+  letter-spacing: 1px;
+  padding: 10px;
+}  
+.btn-details{
+  &:hover{
+    background-color: #2a2e2dde;;
+  }
+}
+.btn-shopping{
+  border-radius: 0 !important;
+  background-color: #d96025d9;
+  &:hover{
+    background-color: #da6125fa;
+  }
+}
+// 購物車
+.btn-outline-primary {
+  color: $Cyan;
+  border-color: $Cyan;
+  &:hover{
+    color: $white;
+    background-color: $Cyan;
+    border-color: $Cyan;
+  }
+}
+.btn-outline-danger {
+  color: $org;
+  border: 0 !important;
+  &:hover{
+    color: $white;
+    background-color: $org;
+  }
+}
+.btn-del-all{
+  color: $org;
+  height: 30px;
+  &:hover{
+    color: $org;
+    &::after{
+      float: left;
+      width: 100%;
+    }
+  }
+  &::after{
+    float: right;
+    height: 2px;
+    background: $org;
+  }
+}
+// 優惠券按鈕
+.coupon-btn{
+  letter-spacing: 1px;
+  color: $org;
+  border-color: $org;
+  &:hover{
+    color: $main-col;
+    background: $org;
+  }
+}
+// 單一產品按鈕
+.addcart-btn{
+  color: $addcart;
+  border: 1px solid $addcart;
+  &:hover{
+    color:$white;
+    background: $addcart;
+  }
+}
+/*-- pages --*/
+.page-item.active{
+  .page-link{
+    background-color: #d96025d9;
+    border-color: #d96025d9;
+  }
+}
+.page-link{
+  color: $Cyan;
+  &:hover{
+    color: #16718c;
+  }
+}
+.page-flex{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+// 登入
+.login-btn{
+  padding: 5px;
+  margin-top: 1em; 
+  background: $login-off;
+  color: $white;
+  box-shadow: 0 1px 5px #211f1f61;
+  &:hover{
+    background: $login-On;
+    color: $white;
+  }
+}
+// 後台
+.backs-btn-add{    
+  background-color: $Cyan;
+  letter-spacing: 1px;
+  color: $white;
+  font-family: $MJ;
+  &:hover{
+    background-color: #3c8ea7;
+    color: $white;
+  }
+}

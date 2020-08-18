@@ -1,0 +1,45 @@
+.footer-navbar{
+  padding: 3em 2em;
+  background-color: $dark;
+  box-shadow: 0 0 5px $dark;
+  color: $main-col;
+}
+.conn{
+  letter-spacing: 1px;
+  ul{
+    height: 40px;
+    font-size: 20px;
+    a{
+      color: $main-col;
+    }
+  }
+  p{
+    color:#a9a1a1;
+  }
+};
+.footer-logo > a{
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-shadow: 0 3px 8px #1b1717;
+  color:$main-col;
+  font-family: 'Audiowide', cursive;
+}
+.icon-box{
+  a{
+    color: $main-col;
+    .fab{
+      transform: rotateY(0deg);
+      transition: all .6s;
+      font-size: 24px;
+    }
+    &:hover{
+      .fab{
+        transform: rotateY(360deg);
+      }
+    }
+  }
+  p{
+    padding-top: 3px;
+    color:#a9a1a1;
+  }
+}

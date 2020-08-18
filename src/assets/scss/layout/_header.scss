@@ -1,0 +1,63 @@
+.header-navbar{
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 1em 2em;
+  background-color: $dark;
+  box-shadow: 0 0 5px;
+  overflow: hidden;
+  z-index: 2000;
+  transition: all .3s;
+  a{
+    color: $main-col;
+  }
+  .logo > a{
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-family: 'Audiowide', cursive;
+  }
+  &.active{
+    padding: .8em 2em;
+  }
+}
+.front-menu{
+  margin-left: 40px;
+  letter-spacing: 2px;
+  a{
+    padding: 1.3em 2em;
+    font-size: 20px;
+    color: $main-col;
+    font-weight: bold;
+    &:hover{
+      background: $main-col;
+      box-shadow: 0 0 5px #40494a inset;
+      color: $dark;
+    }
+    &.active{
+      background: $main-col;
+      box-shadow: 0 0 5px #40494a inset;
+      color: $dark;
+    }
+  }
+}
+.front-login{
+  font-size: 20px;
+  a{
+    padding: 1.3em 1em;
+    color: $main-col;
+    font-weight: bold;
+    &:hover{
+      background: $main-col;
+      box-shadow: 0 0 5px #40494a inset;
+      color: $dark;
+    }
+  }
+}
+// 購物車
+.badge-danger{
+  background-color: #f15003;
+  border-radius: 10rem;
+}
+.badge{
+  font-size: 55%;
+}
