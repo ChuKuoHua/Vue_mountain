@@ -1,8 +1,5 @@
 <template>
   <div>
-    <loading :active.sync="isLoading">
-      <i class="loading-box"></i>
-    </loading>
     <Swiper ref="mySwiper" :options="swiperOption">
       <swiper-slide
         v-for="item in identical"
@@ -49,7 +46,6 @@ export default {
   data() {
     return {
       products: [],
-      isLoading: false,
       uuid: process.env.VUE_APP_UUID,
       swiperOption: {
         pagination: {
@@ -92,20 +88,17 @@ export default {
   },
   methods: {
     getProducts() {
-      this.isLoading = true;
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/products`;
       this.$http
         .get(url)
         .then((res) => {
           this.products = res.data.data;
-          this.isLoading = false;
         })
         .catch(() => {
           Toast.fire({
             title: '資料讀取失敗，請耐心等待',
             icon: 'error',
           });
-          this.isLoading = false;
         });
     },
     getDetail(id) {

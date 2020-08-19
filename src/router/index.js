@@ -26,7 +26,7 @@ const routes = [
       {
         path: '/product/:id',
         name: 'Product',
-        component: () => import('@/views/front/Product'),
+        component: () => import('@/views/front/Product.vue'),
       },
       {
         path: '/cart',
@@ -48,7 +48,6 @@ const routes = [
   // 巢狀路由
   {
     path: '/login',
-    name: 'Login',
     component: () => import('@/views/front/Login.vue'),
   },
   {

@@ -56,7 +56,6 @@
 import Toast from '@/alert/Toast';
 
 export default {
-  name: 'Login',
   data() {
     return {
       user: {
