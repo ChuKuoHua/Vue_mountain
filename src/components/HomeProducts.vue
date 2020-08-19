@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h4 class="font-weight-bold text-center h4">商品介紹</h4>
+    <h4 class="font-weight-bold mb-5 text-center h4">商品介紹</h4>
     <div class="row mt-4">
       <div class="col-md-4">
         <div

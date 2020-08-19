@@ -60,12 +60,13 @@
             :key="item.id">
               <div
                 class="item-img"
-                :style="{backgroundImage:`url(${item.imageUrl[0]})`}"
+                :style="{backgroundImage:`url(${ item.imageUrl[0] })`}"
               >
                 <div class="card-btn-box border-top-0">
-                  <router-link :to="`/product/${item.id}`"
+                  <router-link
+                    :to="`/product/${ item.id }`"
                     class="btn btn-details btn-sm"
-                    :disabled="status.loadingItem === item.id">
+                  >
                     查看更多
                   </router-link>
                 </div>

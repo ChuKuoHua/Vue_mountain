@@ -145,9 +145,9 @@
 
 <script>
 import Toast from '@/alert/Toast';
-import Sametype from './components/Sametype.vue';
-import Problem from './components/Problem.vue';
-import ReturnNotice from './components/ReturnNotice.vue';
+import Sametype from '@/components/Sametype.vue';
+import Problem from '@/components/Problem.vue';
+import ReturnNotice from '@/components/ReturnNotice.vue';
 
 export default {
   name: 'Product',
