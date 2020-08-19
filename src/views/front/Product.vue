@@ -26,10 +26,12 @@
         </ol>
       </nav>
       <div class="d-flex product-box mb-5">
-        <div class="col-md-6 product-img-box">
-          <div class="product-img"
-            :style="{ backgroundImage: `url(${product.imageUrl})` }"
-          ></div>
+        <div class="col-md-6">
+          <img
+            :src="product.imageUrl"
+            alt=""
+            class="product-img"
+          >
         </div>
         <div class="col-md-6 pro-content-box pr-4">
           <div>
@@ -136,8 +138,8 @@
       <div class="col-md-10 sametype-box mb-4">
         <h5 class="font-weight-bold mb-3 h5">相關商品</h5>
         <Sametype
-        :product="product"
-        @update="getProduct" />
+          :product="product"
+          @update="getProduct" />
       </div>
     </div>
   </div>

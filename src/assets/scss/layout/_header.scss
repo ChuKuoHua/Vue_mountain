@@ -30,12 +30,10 @@
     font-weight: bold;
     &:hover{
       background: $main-col;
-      box-shadow: 0 0 5px #40494a inset;
       color: $dark;
     }
     &.active{
       background: $main-col;
-      box-shadow: 0 0 5px #40494a inset;
       color: $dark;
     }
   }

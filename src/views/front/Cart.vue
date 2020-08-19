@@ -20,7 +20,7 @@
               </tr>
             </thead>
             <tbody class="border-y">
-              <tr v-for="item in carts" :key="item.id">
+              <tr v-for="item in carts" :key="item.product.id + 1">
                 <td>
                   <button
                     type="button"

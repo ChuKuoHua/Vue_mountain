@@ -96,9 +96,10 @@
           </div>
           <!-- 分頁 -->
           <Pagination
-          class="text-right"
+            class="text-right"
             :pages="pagination"
             @changePage="getProducts"
+            v-if="newProducts.length >= 25"
           ></Pagination>
         </div>
       </div>
