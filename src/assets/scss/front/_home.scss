@@ -71,7 +71,7 @@
 .introduc-img{
   overflow: hidden;
   width: 100%;
-  height: 200px;
+  height: 220px;
   background-size: cover;
   background-position: bottom;
   .introduc-box{
@@ -80,10 +80,8 @@
     letter-spacing: 2px;
   }
   .int{
-    position: absolute;
     color: #fff9f7;
-    top: 0;
-    padding-bottom: 3em;
+    height: 250px;
     background: #4c4a4691;
     h5{
       font-size: 18px;
@@ -99,5 +97,5 @@
   }
 }
 .sup-mt{
-  margin: 22px;
+  margin-top: 22px;
 }
