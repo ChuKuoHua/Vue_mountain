@@ -25,7 +25,7 @@
           > {{ product.title }} </li>
         </ol>
       </nav>
-      <div class="d-flex product-box mb-5">
+      <section class="d-flex row product-box my-4">
         <div class="col-md-6">
           <img
             :src="product.imageUrl"
@@ -39,13 +39,13 @@
               {{ product.title }}
             </h4>
             <hr>
-            <p class="pl-3 mb-2">{{ product.content }}</p>
+            <p class="mb-2">{{ product.content }}</p>
           </div>
           <div class="text-right">
             <span
               class="product-origin-price pr-2"
               v-if="product.origin_price !== 0">
-              {{ product.origin_price | currency}}
+              {{ product.origin_price | currency }}
             </span>
             <span class="pr-2 product-price">
               {{ product.price | currency }}
@@ -61,11 +61,12 @@
           </select>
           <div class="product-footer mb-3">
             <div v-if="product.num" class="subtotal-col text-nowrap mr-3">
-              小計 | <strong>{{ product.num * product.price | currency}}</strong>
+              小計 <span class="text-lightgary">| </span>
+              <strong>{{ product.num * product.price | currency }}</strong>
             </div>
             <button
               type="button"
-              class="btn addcart-btn"
+              class="btn btn-check"
               :disabled=" status.loadingItem === product.id"
               @click="addToCart(product.id, product.num)"
               >
@@ -75,45 +76,47 @@
             </button>
           </div>
         </div>
-      </div>
-      <ul class="nav nav-tabs mx-5" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link active"
-            id="home-tab"
-            data-toggle="tab"
-            href="#home"
-            role="tab"
-            aria-controls="home"
-            aria-selected="true"
-          >商品介紹</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link"
-            id="profile-tab"
-            data-toggle="tab"
-            href="#profile"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="false"
-          >購物須知</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link"
-            id="return-tab"
-            data-toggle="tab"
-            href="#return"
-            role="tab"
-            aria-controls="return"
-            aria-selected="false"
-          >退換貨說明</a>
-        </li>
-      </ul>
-      <div class="tab-content pl-5" id="myTabContent">
+      </section>
+      <nav>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link active"
+              id="home-tab"
+              data-toggle="tab"
+              href="#home"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >商品介紹</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="profile-tab"
+              data-toggle="tab"
+              href="#profile"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >購物須知</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="return-tab"
+              data-toggle="tab"
+              href="#return"
+              role="tab"
+              aria-controls="return"
+              aria-selected="false"
+            >退換貨說明</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="tab-content pl-3" id="myTabContent">
         <div
-          class="tab-pane fade show active pl-3"
+          class="tab-pane fade show active"
           id="home"
           role="tabpanel"
           aria-labelledby="home-tab"
@@ -134,25 +137,24 @@
         >
           <ReturnNotice />
         </div>
-      </div>
-      <div class="col-md-10 sametype-box mb-4">
+      </section>
+      <section class="col-md-12 sametype-box mb-4">
         <h5 class="font-weight-bold mb-3 h5">相關商品</h5>
         <Sametype
           :product="product"
           @update="getProduct" />
-      </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
 import Toast from '@/alert/Toast';
-import Sametype from '@/components/Sametype.vue';
-import Problem from '@/components/Problem.vue';
-import ReturnNotice from '@/components/ReturnNotice.vue';
+import Sametype from '@/components/front/Sametype.vue';
+import Problem from '@/components/front/Problem.vue';
+import ReturnNotice from '@/components/front/ReturnNotice.vue';
 
 export default {
-  name: 'Product',
   components: {
     Sametype,
     Problem,

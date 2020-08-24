@@ -34,9 +34,9 @@
         </thead>
         <tbody class="flex text-left">
           <tr v-for="(item, key) in coupons" :key="key">
-            <td>{{item.title}}</td>
-            <td>{{item.percent}}</td>
-            <td class="text-center">{{item.deadline.datetime}}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.percent }}</td>
+            <td class="text-center">{{ item.deadline.datetime }}</td>
             <td class="text-right">
               <span
                 v-if="item.enabled"
@@ -83,8 +83,8 @@
 
 <script>
 import $ from 'jquery';
-import CouponModal from './components/CouponModal.vue';
-import DelCouponModal from './components/DelCouponModal.vue';
+import CouponModal from '@/components/backstage/CouponModal.vue';
+import DelCouponModal from '@/components/backstage/DelCouponModal.vue';
 
 export default {
   data() {

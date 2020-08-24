@@ -24,10 +24,10 @@
                 class="product-origin-price pr-2"
                 v-if="item.origin_price !== 0"
               >
-                {{ item.origin_price | currency}}
+                {{ item.origin_price | currency }}
               </span>
               <span>
-                {{ item.price | currency}}
+                {{ item.price | currency }}
               </span>
             </div>
           </div>

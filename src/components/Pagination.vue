@@ -4,7 +4,7 @@
     <ul class="pagination justify-content-center">
       <li
         class="page-item"
-        :class="{'disabled': pages.current_page === 1}"
+        :class="{ 'disabled': pages.current_page === 1 }"
       >
         <a
           class="page-link"
@@ -19,7 +19,7 @@
         v-for="(item, index) in pages.total_pages"
         :key="index"
         class="page-item"
-        :class="{'active': item === pages.current_page}"
+        :class="{ 'active': item === pages.current_page }"
       >
         <a
           class="page-link"
@@ -29,7 +29,7 @@
       </li>
       <li
         class="page-item"
-        :class="{'disabled': pages.current_page === pages.total_pages}"
+        :class="{ 'disabled': pages.current_page === pages.total_pages }"
       >
         <a
           class="page-link"
@@ -46,7 +46,6 @@
 </template>
 <script>
 export default {
-  name: 'Pagination',
   props: {
     pages: {
       type: Object,

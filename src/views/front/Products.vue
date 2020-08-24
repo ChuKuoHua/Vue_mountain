@@ -7,8 +7,8 @@
       <loading :active.sync="isLoading">
         <i class="loading-box"></i>
       </loading>
-      <div class="position-relative pt-4 pb-5 mb-4 d-flex">
-        <div class="col-md-3">
+      <div class="position-relative row pt-4 pb-5 mb-4 d-flex">
+        <nav class="col-md-3">
           <ul
             class="list-group sticky-top"
           >
@@ -53,23 +53,21 @@
               >手電筒．頭燈</a>
             </li>
           </ul>
-        </div>
+        </nav>
         <div class="col-md-9 position-relative">
           <div class="d-flex flex-wrap">
             <div class="card-flex shadow-sm" v-for="item in newProducts"
             :key="item.id">
               <div
                 class="item-img"
-                :style="{backgroundImage:`url(${ item.imageUrl[0] })`}"
+                :style="{ backgroundImage:`url(${ item.imageUrl[0] })` }"
               >
-                <div class="card-btn-box border-top-0">
-                  <router-link
-                    :to="`/product/${ item.id }`"
-                    class="btn btn-details btn-sm"
-                  >
-                    查看更多
-                  </router-link>
-                </div>
+                <router-link
+                  :to="`/product/${ item.id }`"
+                  class="btn card-btn-box btn-sm"
+                >
+                  查看更多
+                </router-link>
               </div>
               <h5 class="text-center card-title font-weight-bold">
                 {{ item.title }}
@@ -79,8 +77,8 @@
                   <span
                     class="origin-price-f mr-2"
                     v-if="item.origin_price !== 0"
-                  >{{item.origin_price | currency}}</span>
-                  <span class="price-color">{{item.price | currency}}</span>
+                  >{{ item.origin_price | currency }}</span>
+                  <span class="price-color">{{ item.price | currency }}</span>
                 </div>
                 <button
                   class="btn btn-shopping btn-sm"
@@ -112,7 +110,6 @@ import Toast from '@/alert/Toast';
 import Pagination from '@/components/Pagination.vue';
 
 export default {
-  name: 'Products',
   data() {
     return {
       isLoading: false,
@@ -166,6 +163,7 @@ export default {
       this.$http.post(url, cart)
         .then(() => {
           this.status.loadingItem = '';
+          this.$bus.$emit('update-total');
           Toast.fire({
             title: '已加入購物車',
             icon: 'success',

@@ -224,22 +224,42 @@
                         :class="classes" />
                       <span class="invalid-feedback">{{ errors[0] }}</span>
                     </validation-provider>
-                    <div class="form-group">
-                      <div class="form-check modal-checkbox text-center">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="tempProduct.enabled"
-                          :true-value="true"
-                          :false-value="false"
-                          id="enabled"
-                        >
-                        <label
-                          class="form-check-label"
-                          for="enabled"
-                        >
-                          是否啟用
-                        </label>
+                    <div class="d-flex justify-content-evenly">
+                      <div class="form-group">
+                        <div class="form-check modal-checkbox text-center">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="tempProduct.enabled"
+                            :true-value="true"
+                            :false-value="false"
+                            id="enabled"
+                          >
+                          <label
+                            class="form-check-label"
+                            for="enabled"
+                          >
+                            是否啟用
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-check modal-checkbox text-center">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="tempProduct.options.hot"
+                            :true-value="true"
+                            :false-value="false"
+                            id="hot"
+                          >
+                          <label
+                            class="form-check-label"
+                            for="hot"
+                          >
+                            熱門商品
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -274,9 +294,9 @@ export default {
   },
   data() {
     return {
-      tokrn: '',
       tempProduct: {
         imageUrl: [],
+        options: {},
       },
       state: {
         fileUpLoading: false,
@@ -292,23 +312,34 @@ export default {
     },
   },
   methods: {
-    getProduct(id) {
+    getProduct(id, type) {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_APIPATH}/${this.uuid}/admin/ec/product/${id}`;
-      this.$http
-        .get(api)
-        .then((res) => {
-          $('#productModal').modal('show');
-          this.tempProduct = res.data.data;
+      switch (type) {
+        case 'new':
+          this.tempProduct = {
+            imageUrl: [],
+            options: {},
+          };
           this.isLoading = false;
-        })
-        .catch(() => {
-          Toast.fire({
-            title: '資料讀取失敗，請稍後再試',
-            icon: 'error',
-          });
-          this.isLoading = false;
-        });
+          break;
+        default:
+          this.$http
+            .get(api)
+            .then((res) => {
+              $('#productModal').modal('show');
+              this.tempProduct = res.data.data;
+              this.isLoading = false;
+            })
+            .catch(() => {
+              Toast.fire({
+                title: '資料讀取失敗，請稍後再試',
+                icon: 'error',
+              });
+              this.isLoading = false;
+            });
+          break;
+      }
     },
     updateProduct() {
       this.isLoading = true;
@@ -319,8 +350,6 @@ export default {
       if (!this.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/${this.uuid}/admin/ec/product/${this.tempProduct.id}`;
         httpMethod = 'patch';
-        this.token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-        this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`;
       }
 
       this.$http[httpMethod](api, this.tempProduct)

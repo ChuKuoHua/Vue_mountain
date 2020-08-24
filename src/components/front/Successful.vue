@@ -1,8 +1,8 @@
 <template>
-  <div class="my-5">
+  <div class="my-5 row">
     <div class="col-md-10 p-0 m-auto">
       <div class="success-box">
-        <div class="w-50 left-content">
+        <section class="w-50 left-content">
           <h5 class="order-logo">MOUNTAIN</h5>
           <div class="vrl">
             <p>感謝您的購買</p>
@@ -20,11 +20,11 @@
               <i class="fas fa-angle-left"></i>
             </button>
           </div>
-        </div>
+        </section>
         <div class="w-50">
           <div
             class="right-content"
-            :style="{backgroundImage:`url('https://images.unsplash.com/photo-1568454537842-d933259bb258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')`}"
+            :style="{ backgroundImage:`url('https://images.unsplash.com/photo-1568454537842-d933259bb258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')` }"
           ></div>
         </div>
       </div>
@@ -106,7 +106,7 @@
                     v-if="isEnabled"
                   >
                     <p>優惠券</p>
-                    <p> {{order.coupon.title}} </p>
+                    <p> {{ order.coupon.title }} </p>
                   </div>
                 </li>
                 <li class="pt-2 d-flex justify-content-between border-0">

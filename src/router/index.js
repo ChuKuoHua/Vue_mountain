@@ -6,41 +6,34 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/front/Layout.vue'),
+    component: () => import('@/views/Layout.vue'),
     children: [
       {
         path: '',
-        name: 'Home',
         component: () => import('@/views/front/Home.vue'),
       },
       {
         path: '/about',
-        name: 'About',
         component: () => import('@/views/front/About.vue'),
       },
       {
         path: '/products',
-        name: 'Products',
         component: () => import('@/views/front/Products.vue'),
       },
       {
         path: '/product/:id',
-        name: 'Product',
         component: () => import('@/views/front/Product.vue'),
       },
       {
         path: '/cart',
-        name: 'Cart',
         component: () => import('@/views/front/Cart.vue'),
       },
       {
         path: '/order',
-        name: 'Order',
         component: () => import('@/views/front/Order.vue'),
       },
       {
         path: '/checkout/:orderId',
-        name: 'Checkout',
         component: () => import('@/views/front/Checkout.vue'),
       },
     ],
@@ -48,7 +41,7 @@ const routes = [
   // 巢狀路由
   {
     path: '/login',
-    component: () => import('@/views/front/Login.vue'),
+    component: () => import('@/views/Login.vue'),
   },
   {
     path: '/admin',
@@ -56,22 +49,22 @@ const routes = [
     children: [
       {
         path: 'products',
-        component: () => import('@/views/backstage/Products'),
+        component: () => import('@/views/backstage/Products.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'orders',
-        component: () => import('@/views/backstage/Orders'),
+        component: () => import('@/views/backstage/Orders.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'coupons',
-        component: () => import('@/views/backstage/Coupons'),
+        component: () => import('@/views/backstage/Coupons.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'storages',
-        component: () => import('@/views/backstage/Storages'),
+        component: () => import('@/views/backstage/Storages.vue'),
         meta: { requiresAuth: true },
       },
     ],

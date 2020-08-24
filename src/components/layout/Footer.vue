@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative footer-navbar">
+  <footer class="position-relative footer-navbar">
     <div class="container d-flex justify-content-between">
       <div class="conn d-flex justify-content-between flex-column">
         <ul class="navbar-nav flex-row  justify-content-around py-2">
@@ -45,7 +45,7 @@
         <p class="mt-3">僅做為個人學習使用，非商業用途</p>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

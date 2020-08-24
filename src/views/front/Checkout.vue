@@ -6,10 +6,10 @@
     <CartBanner />
     <div class="container">
       <div
-        class="my-5"
+        class="my-5 row"
         v-if="!order.paid">
         <div class="col-md-5 mt-3 order-data-box">
-          <div class="card">
+          <section class="card">
             <div
               class="complete-nav py-2
               bg-undone text-white"
@@ -62,7 +62,7 @@
                     v-if="isEnabled"
                   >
                     <p>優惠券</p>
-                    <p> {{order.coupon.title}} </p>
+                    <p> {{ order.coupon.title }} </p>
                   </div>
                 </li>
                 <li class="pt-2 d-flex justify-content-between border-0">
@@ -168,7 +168,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
       <Successful
@@ -179,8 +179,8 @@
 </template>
 
 <script>
-import CartBanner from '@/components/CartBanner.vue';
-import Successful from '@/components/Successful.vue';
+import CartBanner from '@/components/front/CartBanner.vue';
+import Successful from '@/components/front/Successful.vue';
 import Toast from '@/alert/Toast';
 
 export default {

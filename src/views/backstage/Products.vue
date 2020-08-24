@@ -16,31 +16,38 @@
         <thead class="thead-col font-weight-bold">
           <tr class="text-left">
             <th width="130">
-            分類
+              分類
             </th>
             <th width="170">產品名稱</th>
             <th width="130">
-            原價
+              原價
             </th>
             <th width="130">
-            售價
+              售價
             </th>
             <th width="100" class="text-right">
-            是否啟用
+              是否啟用
+            </th>
+            <th width="100" class="text-right">
+              熱門商品
             </th>
             <th width="130" class="text-right">
-            編輯
+              編輯
             </th>
           </tr>
         </thead>
         <tbody class="flex text-left">
           <tr v-for="item in products" :key="item.id">
-            <td>{{item.category}}</td>
-            <td>{{item.title}}</td>
-            <td>{{item.origin_price | currency}}</td>
-            <td>{{item.price | currency}}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.origin_price | currency }}</td>
+            <td>{{ item.price | currency }}</td>
             <td class="text-right">
               <span v-if="item.enabled" class="text-success">啟用</span>
+              <span v-else class="text-secondary">未啟用</span>
+            </td>
+            <td class="text-right">
+              <span v-if="item.options.hot" class="text-success">啟用</span>
               <span v-else class="text-secondary">未啟用</span>
             </td>
             <td class="text-right">
@@ -84,8 +91,8 @@
 import $ from 'jquery';
 import Toast from '@/alert/Toast';
 import Pagination from '@/components/Pagination.vue';
-import ProductModal from './components/ProductModal.vue';
-import DelProductModal from './components/DelProductModal.vue';
+import ProductModal from '@/components/backstage/ProductModal.vue';
+import DelProductModal from '@/components/backstage/DelProductModal.vue';
 
 export default {
   data() {
@@ -94,6 +101,7 @@ export default {
       pagination: {},
       tempProduct: {
         imageUrl: [],
+        options: {},
       },
       isNew: false,
       isLoading: false,
@@ -130,15 +138,17 @@ export default {
     openModal(type, item) {
       switch (type) {
         case 'new':
-          this.$refs.productModal.tempProduct = {
+          this.tempProduct = {
             imageUrl: [],
+            options: {},
           };
+          this.$refs.productModal.getProduct(this.tempProduct, type);
           $('#productModal').modal('show');
           this.isNew = true;
           break;
         case 'edit':
           this.isNew = false;
-          this.$refs.productModal.getProduct(item.id);
+          this.$refs.productModal.getProduct(item.id, type);
           break;
         case 'delete':
           this.tempProduct = { ...item };

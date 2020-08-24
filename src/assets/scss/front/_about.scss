@@ -21,6 +21,7 @@
   background: $white;
   display: flex;
   align-items: center;
+  position: relative;
   .left-content-bg{
     background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/b8BQklA842P4ysgiCUDUygWbixeQBizBenrennyFKje7GpvpqXdpSFx7FkzGWeGxXkXpg6id01W0TIoE770x1btrZc5aAOpHutoMupE709cENrnG6ilF7zKIgOdowBli.png');
     height: 450px;
@@ -47,16 +48,15 @@
     }
   }
   .right-content-box{
+    position: absolute;
     border: 3px solid $dark;
-    z-index: 0;
-    padding: 3em 5em;
-    margin: 0 30px;
+    padding: 5em 4em;
+    right: -30px;
   }
   .right-content{
     padding: 0px 18px;
     text-align: justify;
     line-height: 28px;
-    letter-spacing: 1px;
     font-size: 20px;
   }
 }

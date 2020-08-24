@@ -22,7 +22,7 @@
           <tr
             v-for="(item, key) in orders"
             :key="key"
-            :class="{'text-secondary': !item.is_paid}"
+            :class="{ 'text-secondary': !item.is_paid }"
           >
             <td>{{ item.created.datetime }}</td>
             <td>
@@ -41,7 +41,7 @@
               {{ item.payment }}
             </td>
             <td>
-              {{ item.amount | currency}}
+              {{ item.amount | currency }}
             </td>
             <td class="text-left">
               <div class="custom-control custom-switch">
@@ -94,7 +94,7 @@
 <script>
 import Pagination from '@/components/Pagination.vue';
 import Toast from '@/alert/Toast';
-import OrderModal from './components/OrderModal.vue';
+import OrderModal from '@/components/backstage/OrderModal.vue';
 
 export default {
   components: {

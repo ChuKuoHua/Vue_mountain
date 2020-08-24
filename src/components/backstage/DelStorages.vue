@@ -68,7 +68,6 @@ import Toast from '@/alert/Toast';
 export default {
   data() {
     return {
-      tokrn: '',
       uuid: process.env.VUE_APP_UUID,
     };
   },
@@ -81,9 +80,7 @@ export default {
   methods: {
     deleteData() {
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/admin/storage/${this.tempData.id}`;
-      this.token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
 
-      this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`;
       this.$http.delete(url)
         .then(() => {
           $('#deleteModal').modal('hide');

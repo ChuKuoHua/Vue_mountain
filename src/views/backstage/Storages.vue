@@ -56,7 +56,7 @@
 import $ from 'jquery';
 import Pagination from '@/components/Pagination.vue';
 import Toast from '@/alert/Toast';
-import DelStorages from './components/DelStorages.vue';
+import DelStorages from '@/components/backstage/DelStorages.vue';
 
 export default {
   components: {

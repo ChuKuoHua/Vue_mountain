@@ -63,7 +63,6 @@ import Toast from '@/alert/Toast';
 export default {
   data() {
     return {
-      token: '',
       uuid: process.env.VUE_APP_UUID,
     };
   },
@@ -77,10 +76,6 @@ export default {
     delProductData() {
       this.isProcessing = true;
       const api = `${process.env.VUE_APP_APIPATH}/${this.uuid}/admin/ec/product/${this.tempProduct.id}`;
-      this.token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-      // Axios 預設值
-      this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`;
-
       this.$http.delete(api)
         .then(() => {
           $('#delProductModal').modal('hide');

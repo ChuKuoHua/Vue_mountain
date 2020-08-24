@@ -82,15 +82,6 @@
     background: $org;
   }
 }
-// 單一產品按鈕
-.addcart-btn{
-  color: $addcart;
-  border: 1px solid $addcart;
-  &:hover{
-    color:$white;
-    background: $addcart;
-  }
-}
 /*-- pages --*/
 .page-item.active{
   .page-link{

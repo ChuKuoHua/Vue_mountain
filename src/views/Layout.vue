@@ -2,15 +2,15 @@
   <div>
     <Header />
     <router-view class="content-pt"></router-view>
-    <ScrollTop :style="{ opacity: isOpacity}"/>
+    <ScrollTop :style="{ opacity: isOpacity }"/>
     <Footer />
   </div>
 </template>
 
 <script>
 import ScrollTop from '@/components/ScrollTop.vue';
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
+import Header from '@/components/layout/Header.vue';
+import Footer from '@/components/layout/Footer.vue';
 
 export default {
   components: {

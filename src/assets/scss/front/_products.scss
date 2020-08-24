@@ -90,6 +90,10 @@ $disabled:#272a2b;
   &:hover{
     .card-btn-box{
       transform: translateY(0px);
+      color: #f3ecec;
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-weight: bolder;
     }
   }
 }

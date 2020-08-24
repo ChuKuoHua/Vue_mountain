@@ -48,7 +48,7 @@
   }
 }
 .product-box{
-  margin: 0 10em;
+  margin: 0 9em;
   overflow: hidden;
 }
 // 產品內容樣式
@@ -107,18 +107,18 @@
 //商品介紹及說明
 .nav-item{
   a{
-    color: $dark !important;
+    color: #565656 !important;
     font-weight: bold;
     letter-spacing: 2px;
     &.active{
-      background-color: $dark !important;
-      border-color:#ffffff00 !important;
-      color: $main-col !important;
+      background-color: #dfe5ea !important;
+      border-color:#dfe5ea !important;
+      color: $dark !important;
     }
   }
 }
 .tab-content{
-  background-color: #e9ecef;
+  background-color: #dfe5ea;
   padding: 2em 0;
   margin-bottom: 1em;
   border-bottom: 1px solid #dee2e6;

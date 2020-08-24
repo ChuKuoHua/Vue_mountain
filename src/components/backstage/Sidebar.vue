@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <header>
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="mt-3">
         <h6 class="sidebar-tit">管理員</h6>
@@ -19,7 +19,7 @@
         </ul>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script>

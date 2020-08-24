@@ -4,155 +4,157 @@
       <i class="loading-box"></i>
     </loading>
     <CartBanner />
-    <div class="container my-5 d-flex align-items-center">
-      <div class="col-md-8 commodity-box">
-        <div v-if="carts.length > 0">
-          <table class="mt-3">
-            <thead class="font-weight-bold">
-              <tr>
-                <th></th>
-                <th class="text-left">商品</th>
-                <th class="text-center">
-                  數量
-                </th>
-                <th>單位</th>
-                <th class="text-right">單價</th>
-              </tr>
-            </thead>
-            <tbody class="border-y">
-              <tr v-for="item in carts" :key="item.product.id + 1">
-                <td>
-                  <button
-                    type="button"
-                    class="btn btn-outline-danger btn-sm"
-                    @click="removeCartItem(item.product.id)"
-                  >
-                    <i class="far fa-trash-alt"></i>
-                  </button>
-                </td>
-                <td>
-                  {{ item.product.title }}
-                </td>
-                <td class="produce-num-td">
-                  <div class="produce-num-group d-flex">
-                    <div
-                      class="num-btnbox"
-                    >
-                      <button
-                        class="btn"
-                        @click="quantityUpdata(item.product.id, item.quantity - 1)"
-                        :disabled = "item.quantity <= 1"
-                      >
-                        <i class="fas fa-minus"></i>
-                      </button>
-                    </div>
-                    <input
-                      type="number"
-                      class="form-control text-center numbox"
-                      :value="item.quantity"
-                      @keyup.enter="quantityUpdata(item.product.id, $event.target.value)"
-                    />
-                    <div class="num-btnbox">
-                      <button
-                        class="btn"
-                        @click="quantityUpdata(item.product.id, item.quantity + 1)"
-                        :disabled = "item.quantity >= 10"
-                      >
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                </td>
-                <td >
-                  <span>/</span> {{ item.product.unit }}
-                </td>
-                <td class="text-right">
-                  {{ item.product.price | currency}}
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="4">
+    <div class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-md-8 commodity-box">
+          <div v-if="carts.length > 0">
+            <table class="mt-3">
+              <thead class="font-weight-bold">
+                <tr>
+                  <th></th>
+                  <th class="text-left">商品</th>
+                  <th class="text-center">
+                    數量
+                  </th>
+                  <th>單位</th>
+                  <th class="text-right">單價</th>
+                </tr>
+              </thead>
+              <tbody class="border-y">
+                <tr v-for="item in carts" :key="item.product.id + 1">
+                  <td>
                     <button
-                    type="button"
-                    class="btn btn-del-all sideline btn-sm float-left my-3"
-                    @click="removeAllCartItem()"
+                      type="button"
+                      class="btn btn-outline-danger btn-sm"
+                      @click="removeCartItem(item.product.id)"
+                    >
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </td>
+                  <td>
+                    {{ item.product.title }}
+                  </td>
+                  <td class="produce-num-td">
+                    <div class="produce-num-group d-flex">
+                      <div
+                        class="num-btnbox"
+                      >
+                        <button
+                          class="btn"
+                          @click="quantityUpdata(item.product.id, item.quantity - 1)"
+                          :disabled = "item.quantity <= 1"
+                        >
+                          <i class="fas fa-minus"></i>
+                        </button>
+                      </div>
+                      <input
+                        type="number"
+                        class="form-control text-center numbox"
+                        :value="item.quantity"
+                        @keyup.enter="quantityUpdata(item.product.id, $event.target.value)"
+                      />
+                      <div class="num-btnbox">
+                        <button
+                          class="btn"
+                          @click="quantityUpdata(item.product.id, item.quantity + 1)"
+                          :disabled = "item.quantity >= 10"
+                        >
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td >
+                    <span>/</span> {{ item.product.unit }}
+                  </td>
+                  <td class="text-right">
+                    {{ item.product.price | currency }}
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">
+                      <button
+                      type="button"
+                      class="btn btn-del-all sideline btn-sm float-left my-3"
+                      @click="removeAllCartItem()"
+                    >
+                      <i class="far fa-trash-alt">
+                        <span class="pl-2">刪除所有商品</span>
+                      </i>
+                    </button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="mb-3 no-shop-box" v-else>
+            <p class="py-5 mt-5">
+              哎呀！您的購物車是空的，趕快去挑選裝備吧！
+            </p>
+            <router-link
+              to="/products"
+              class="text-dark">
+            <i class="fas fa-reply mr-2"></i>
+              繼續購買
+            </router-link>
+          </div>
+        </div>
+        <div class="col-md-4 my-3 card order-price">
+          <div class="card-body">
+            <h3>訂單價格</h3>
+            <div class="px-4 mt-3">
+              <p class=" d-flex justify-content-between">
+                <span>小計：</span>
+                <span>{{ cartTotal | currency }}</span>
+              </p>
+              <p
+                class="d-flex justify-content-between"
+                v-if="(cartTotal !== 0)"
+              >
+                <span>運費：</span>
+                <span v-if="(cartTotal > 1299)"> NT 0</span>
+                <span v-else> NT 80</span>
+              </p>
+              <hr class="m-0  my-2">
+              <p class="text-right promotion">優惠促銷：滿 1299 免運</p>
+              <p class=" d-flex justify-content-between">
+                <span>總計：</span>
+                <span>
+                  {{ fareTotal | currency }}
+                </span>
+              </p>
+              <hr class="hr-opa">
+              <div
+                class="mt-3 mb-2 check-box"
+              >
+                <div>
+                  <router-link
+                    to="/products"
+                    class="text-dark"
+                    v-if="carts.length > 0"
                   >
-                    <i class="far fa-trash-alt">
-                      <span class="pl-2">刪除所有商品</span>
-                    </i>
-                  </button>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <div class="mb-3 no-shop-box" v-else>
-          <p class="py-5 mt-5">
-            哎呀！您的購物車是空的，趕快去挑選裝備吧！
-          </p>
-          <router-link
-            to="/products"
-            class="text-dark">
-          <i class="fas fa-reply mr-2"></i>
-            繼續購買
-          </router-link>
-        </div>
-      </div>
-      <div class="col-md-4 ml-2 my-3 card order-price">
-        <div class="card-body">
-          <h3>訂單價格</h3>
-          <div class="px-4 mt-3">
-            <p class=" d-flex justify-content-between">
-              <span>小計：</span>
-              <span>{{ cartTotal | currency}}</span>
-            </p>
-            <p
-              class="d-flex justify-content-between"
-              v-if="(cartTotal !== 0)"
-            >
-              <span>運費：</span>
-              <span v-if="(cartTotal > 1299)"> NT 0</span>
-              <span v-else> NT 80</span>
-            </p>
-            <hr class="m-0  my-2">
-            <p class="text-right promotion">優惠促銷：滿 1299 免運</p>
-            <p class=" d-flex justify-content-between">
-              <span>總計：</span>
-              <span>
-                {{ fareTotal | currency}}
-              </span>
-            </p>
-            <hr class="hr-opa">
-            <div
-              class="mt-3 mb-2 check-box"
-            >
-              <div>
-                <router-link
-                  to="/products"
-                  class="text-dark"
-                  v-if="carts.length > 0"
-                >
-                <i class="fas fa-reply mr-2"></i>
-                  繼續購買
-                </router-link>
-              </div>
-              <div class="float-right">
-                <router-link
-                  to="/order"
-                  class="btn btn-check checkout"
-                  :class="{ disabled: fareTotal <= 0 }"
-                >
-                  結帳
-                </router-link>
+                  <i class="fas fa-reply mr-2"></i>
+                    繼續購買
+                  </router-link>
+                </div>
+                <div class="float-right">
+                  <router-link
+                    to="/order"
+                    class="btn btn-check checkout"
+                    :class="{ disabled: fareTotal <= 0 }"
+                  >
+                    結帳
+                  </router-link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="bg-cart-footer">
+    <section class="bg-cart-footer">
       <div class="container py-5">
         <h4 class="font-weight-bold text-center h4">登山知識</h4>
         <div class="row mt-4">
@@ -188,16 +190,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-import CartBanner from '@/components/CartBanner.vue';
+import CartBanner from '@/components/front/CartBanner.vue';
 import Toast from '@/alert/Toast';
 
 export default {
-  name: 'Cart',
   components: {
     CartBanner,
   },

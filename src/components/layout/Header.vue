@@ -1,6 +1,6 @@
 <template>
-  <div class="header-navbar">
-    <div class="container d-flex justify-content-between">
+  <header class="header-navbar">
+    <nav class="container d-flex justify-content-between">
       <div class="logo">
         <router-link to="/">MOUNTAIN</router-link>
       </div>
@@ -30,12 +30,9 @@
             {{ cart }}
           </span>
         </router-link>
-        <router-link to="/login">
-          <i class="far fa-user-circle"></i>
-        </router-link>
       </div>
-    </div>
-  </div>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -51,6 +48,11 @@ export default {
   created() {
     this.getCart();
     this.$bus.$on('update-total', () => {
+      this.getCart();
+    });
+  },
+  beforeDestroy() {
+    this.$bus.$off('update-total', () => {
       this.getCart();
     });
   },
