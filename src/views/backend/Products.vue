@@ -91,8 +91,8 @@
 import $ from 'jquery';
 import Toast from '@/alert/Toast';
 import Pagination from '@/components/Pagination.vue';
-import ProductModal from '@/components/backstage/ProductModal.vue';
-import DelProductModal from '@/components/backstage/DelProductModal.vue';
+import ProductModal from '@/components/backend/ProductModal.vue';
+import DelProductModal from '@/components/backend/DelProductModal.vue';
 
 export default {
   data() {

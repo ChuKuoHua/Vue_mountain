@@ -1,0 +1,46 @@
+@include desktop(){
+  .product-box {
+    margin: 0 6em;
+  }
+  .pro-content-box{
+    h4,.fa-bookmark{
+      font-size: 22px;
+    }
+    p{
+      font-size: 18px;
+    }
+    .product-price{
+      font-size: 18px;
+    }
+  }
+  .tab-content{
+    p,ul{
+      letter-spacing: 2px;
+      line-height: 24px;
+    }
+  }
+}
+@include pad(){
+  .product-box {
+    margin: 0;
+  }
+  .tab-content {
+    overflow: scroll;
+    .profile,.return{
+      width: 120%;
+    }
+  }
+}
+@include iphone(){
+  .product-img {
+    height: 200px;
+  }
+  .nav-link {
+    padding: 0.5rem;
+  }
+  .tab-content {
+    .profile,.return{
+      width: 180%;
+    }
+  }
+}

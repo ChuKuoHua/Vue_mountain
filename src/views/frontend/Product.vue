@@ -26,18 +26,27 @@
         </ol>
       </nav>
       <section class="d-flex row product-box my-4">
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
           <img
             :src="product.imageUrl"
             alt=""
             class="product-img"
           >
         </div>
-        <div class="col-md-6 pro-content-box pr-4">
+        <div class="col-lg-6 col-md-12 pro-content-box pr-4">
           <div>
-            <h4 class="pt-3 text-left" id="exampleModalLabel">
-              {{ product.title }}
-            </h4>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <h4 class="pt-3 text-left" id="exampleModalLabel">
+                {{ product.title }}
+              </h4>
+              <div class="tags-size" @click.prevent="addFollow(product.id)">
+                <i
+                  v-if="followData.indexOf(product.id) === -1"
+                  class="far fa-bookmark">
+                </i>
+                <i v-else class="fas fa-bookmark"></i>
+              </div>
+            </div>
             <hr>
             <p class="mb-2">{{ product.content }}</p>
           </div>
@@ -124,14 +133,14 @@
           <p v-html="product.description"></p>
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade profile"
           id="profile" role="tabpanel"
           aria-labelledby="profile-tab"
         >
           <Problem />
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade return"
           id="return" role="tabpanel"
           aria-labelledby="return-tab"
         >
@@ -150,9 +159,9 @@
 
 <script>
 import Toast from '@/alert/Toast';
-import Sametype from '@/components/front/Sametype.vue';
-import Problem from '@/components/front/Problem.vue';
-import ReturnNotice from '@/components/front/ReturnNotice.vue';
+import Sametype from '@/components/frontend/Sametype.vue';
+import Problem from '@/components/frontend/Problem.vue';
+import ReturnNotice from '@/components/frontend/ReturnNotice.vue';
 
 export default {
   components: {
@@ -169,6 +178,7 @@ export default {
       status: {
         loadingItem: '',
       },
+      followData: JSON.parse(localStorage.getItem('followCard')) || [],
       uuid: process.env.VUE_APP_UUID,
     };
   },
@@ -211,6 +221,23 @@ export default {
             icon: 'warning',
           });
         });
+    },
+    addFollow(id) {
+      const followId = this.followData.indexOf(id);
+      if (followId === -1) {
+        this.followData.push(id);
+        Toast.fire({
+          title: '已加入收藏',
+          icon: 'success',
+        });
+      } else {
+        this.followData.splice(followId, 1);
+        Toast.fire({
+          title: '已取消收藏',
+          icon: 'success',
+        });
+      }
+      localStorage.setItem('followCard', JSON.stringify(this.followData));
     },
   },
 };

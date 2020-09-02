@@ -10,6 +10,7 @@ $disabled:#272a2b;
 .ol-bg{
   background-color: #eaeaea7a;
 }
+// banner
 .products-banner{
   @include ban-box;
   background-position: center bottom;
@@ -18,6 +19,33 @@ $disabled:#272a2b;
     @include ban-tit;
   }
 }
+// 商品列表
+.rwd-product-box{
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 1.5rem;
+}
+// 商品排序
+.sortData-box{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 22px;
+  top: -50px;
+  width: 100%;
+  span{
+    margin-left: 42px;
+  }
+}
+.sortData{
+  border-radius: 10px;
+  width: 31%;
+}
+// 商品 menu
 .breadcrumb-item{
   a{
     color: #e0490f;
@@ -29,18 +57,21 @@ $disabled:#272a2b;
 .sticky-top{
   top: 70px;
 }
+.dropdown-btn{
+  border-radius: 0 0 0.25rem 0.25rem !important;
+}
 .list-group-item{
+  background: #464a49;
   letter-spacing: 1px;
   .list-btn{
     display: block;
-    color: #000;
+    color: #f5f4f4;
     padding: 1em;
     &:hover{
       text-decoration: none;
     }
     &.active{
-      background: $dark;
-      color: #fff;
+      @include btn-active;
     }
   }
   &.active{
@@ -49,21 +80,81 @@ $disabled:#272a2b;
     box-shadow: 0 0 0 !important;
   }
   &:hover{
-    box-shadow: 0 0 5px inset #c0d4d3;
-    background-color: #f9fbfb;
+    box-shadow: 0 0 15px inset #c0d4d3;
+    background-color: #464a49;
   }
+}
+.dropdown-style{
+  padding: 0;
+  width: 100%;
+  top: -2px !important;
+}
+.dropdown-btn{
+  display: block;
+  color: $white;
+  padding: 1em;
+  background: #464a49;
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .fa-caret-down{
+    font-size: 20px;
+  }
+  &:hover{
+    color: $white;
+    box-shadow: 0 0 15px inset #c0d4d3;
+  }
+  &.active{
+    @include btn-active;
+  }
+}
+.dropdown-tags{
+  letter-spacing: 1px;
+  transition: all .1s;
+  .list-btn{
+    display: block;
+    color: $dark;
+    padding: .5em 1em;
+    .fa-hiking{
+      display: none;
+    }
+    &:hover{
+      text-decoration: none;
+    }
+    &.active{
+      .fa-hiking{
+        display: initial;
+        padding-right: 5px;
+      }
+    }
+  }
+  &:hover{
+    background-color: #e0e5ea8c;
+  }
+}
+// 商品
+.icon-tags{
+  position: absolute;
+  left: 25px;
+  top: -8px;
+  font-size: 26px;
+  cursor: pointer;
 }
 .card-title{
   color: #2a2e2d;
   font-size: 20px;
-  padding: 10px;
+  padding: 10px 0;
   margin-bottom: 0 !important;
 }
 .card-flex{
-  width: 47%;
+  width: 32%;
+  max-width: 32%;
   display: flex;
   flex-direction: column;
-  margin: 0 20px 20px 0;
+  margin: 0 5px 10px 5px;
   overflow: hidden;
   border-radius: 7px 7px 0 0;
   color: $dark;
@@ -91,7 +182,7 @@ $disabled:#272a2b;
     .card-btn-box{
       transform: translateY(0px);
       color: #f3ecec;
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: 1px;
       font-weight: bolder;
     }
@@ -106,7 +197,7 @@ $disabled:#272a2b;
   height: 100%;
   padding: 0px 50px;
   transition: all .6s;
-  transform: translateX(500px);
+  transform: translateX(1000px);
   .btn{
     width: 100%;
     margin-top: 10px;
@@ -122,24 +213,4 @@ $disabled:#272a2b;
 }
 .subtotal-col{
   color: #5d5454;
-}
-//表單樣式
-.order-color{
-  background: -webkit-linear-gradient(45deg, #6695bb, #56c1ae);
-  background: -o-linear-gradient(45deg, #6695bb, #56c1ae);
-  background: linear-gradient(45deg, #6695bb, #56c1ae);
-  h5{
-    font-size: 18px;
-    letter-spacing: 2px;
-    color: #f5f4f4;
-  }
-}
-.modal-body{
-  letter-spacing: 2px;
-  h4{
-    font-size: 20px;
-  }
-  label{
-    margin-bottom: 5px;
-  }
 }

@@ -4,6 +4,10 @@
   box-shadow: 0 0 5px $dark;
   color: $main-col;
 }
+.rwd-footer{
+  display: flex;
+  justify-content: space-between;
+}
 .conn{
   letter-spacing: 1px;
   ul{

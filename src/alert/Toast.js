@@ -6,6 +6,6 @@ export default (
     showConfirmButton: false,
     timer: 2000,
     padding: '1em',
-    position: 'bottom-start',
+    position: 'center',
   })
 );

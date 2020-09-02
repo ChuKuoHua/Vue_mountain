@@ -1,0 +1,47 @@
+@include desktop(){
+  // banner
+  .home-banner{
+    height: 50vh;
+  }
+  .banner-tit{
+    font-size: 28px !important;
+    top: 200px !important;
+    h1{
+      font-size: 20px;
+      font-family: 'Audiowide', cursive;
+    }
+  }
+  .down-box{
+    display: none;
+  }
+  .home-footer{
+    height: auto;
+    .row{
+      justify-content: space-around;
+    }
+    .int-mb{
+      margin-bottom: 1.2em;
+    }
+  }
+}
+@include pad(){
+  .news-box{
+    margin-bottom: 1em;
+  }
+  .new-bg{
+    display: none;
+  }
+}
+@include iphone(){
+  .banner-tit {
+    font-size: 20px !important;
+    top: 100px !important;
+    p{
+      margin-bottom: 20px;
+    }
+    .go-btn{
+      font-size: 18px;
+      float: none !important;
+    }
+  }
+}

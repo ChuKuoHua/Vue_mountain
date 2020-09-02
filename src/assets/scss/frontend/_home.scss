@@ -22,6 +22,7 @@
   font-size: 24px;
 }
 .down-box{
+  display: inherit;
   background: #b9c3c8bd;
   padding: 0px 8px;
   border-radius: 10px;
@@ -52,7 +53,8 @@
     color: #9a0804;
   }
 }
-.left-new-bg{
+.new-bg{
+  display: block;
   height: 350px;
   background-size: cover;
   background-position: center;
@@ -67,13 +69,13 @@
   height: 420px;
   padding-top: 50px;
 }
-.introduc-img{
+.intro-img{
   overflow: hidden;
   width: 100%;
   height: 220px;
   background-size: cover;
   background-position: bottom;
-  .introduc-box{
+  .intro-box{
     transition: all .8s;
     opacity: 0;
     letter-spacing: 2px;
@@ -90,7 +92,7 @@
     }
   }
   &:hover{
-    .introduc-box{
+    .intro-box{
       opacity: 1;
     }
   }

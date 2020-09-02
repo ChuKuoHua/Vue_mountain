@@ -20,3 +20,12 @@
   text-shadow: 0 3px 10px #020202;
   letter-spacing: 3px;
 }
+@mixin btn-active{
+  color: $light-org;
+  font-weight: bold;
+  border-left: 5px solid;
+}
+@mixin vrl{
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}

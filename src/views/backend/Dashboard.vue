@@ -11,8 +11,8 @@
   </div>
 </template>
 <script>
-import Navbar from '@/components/backstage/Navbar.vue';
-import Sidebar from '@/components/backstage/Sidebar.vue';
+import Navbar from '@/components/backend/Navbar.vue';
+import Sidebar from '@/components/backend/Sidebar.vue';
 
 export default {
   components: {

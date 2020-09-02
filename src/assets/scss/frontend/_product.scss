@@ -22,24 +22,6 @@
 .over-hidden{
   overflow: hidden;
 }
-.shopping{
-  cursor: pointer;
-  color: #2a2e2d;
-  overflow: hidden;
-  background: #e9ecef;
-  .identical-img{
-    max-width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 1.2s;
-  }
-  &:hover{
-    .identical-img{
-      transform: scale(1.1);
-    }
-  }
-}
 .same-content{
   padding: 10px;
   font-weight: bold;
@@ -52,16 +34,6 @@
   overflow: hidden;
 }
 // 產品內容樣式
-.pro-modal-w{
-  max-width: 700px;
-}
-.product-header-col{
-  border-bottom: 0px;
-  h5{
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-}
 .pro-content-box{
   width: 100%;
   color: #2a2e2d;
@@ -83,17 +55,12 @@
 .product-img{
   width: 100%;
   height: 250px;
-  object-fit: cover;
   border: 1px solid #848282;
 }
 .product-footer{
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
-.product-body-col{
-  background-color: $white;
-  box-shadow: 0 0 5px inset;
 }
 .product-price{
   font-size: 16px;
@@ -122,4 +89,34 @@
   padding: 2em 0;
   margin-bottom: 1em;
   border-bottom: 1px solid #dee2e6;
+}
+// swiper
+.swiper-container{
+  padding-bottom: 35px;
+}
+.shopping{
+  cursor: pointer;
+  color: #2a2e2d;
+  overflow: hidden;
+  background: #c1c7c5;
+  .identical-img{
+    max-width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s;
+  }
+  &:hover{
+    .identical-img{
+      transform: scale(1.1);
+    }
+  }
+}
+.swiper-pagination-bullet{
+  width: 15px;
+  height: 5px;
+  border-radius: 30%;
+}
+:root {
+  --swiper-theme-color: #2a2e2d;
 }

@@ -37,10 +37,10 @@
             </div>
             <div class="modal-bod modal-order-shadow">
               <ul class="text-left py-3 px-3">
-                <li class="py-2">Email: {{order.user.email}}</li>
-                <li class="py-2">收件人姓名: {{order.user.name}}</li>
-                <li class="py-2">收件人電話: {{order.user.tel}}</li>
-                <li class="py-2">收件人地址: {{order.user.address}}</li>
+                <li class="py-2">Email: {{ order.user.email }}</li>
+                <li class="py-2">收件人姓名: {{ order.user.name }}</li>
+                <li class="py-2">收件人電話: {{ order.user.tel }}</li>
+                <li class="py-2">收件人地址: {{ order.user.address }}</li>
               </ul>
             </div>
           </div>

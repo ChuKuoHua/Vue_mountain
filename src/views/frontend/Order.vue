@@ -5,11 +5,11 @@
     </loading>
     <CartBanner />
     <div
-      class="container my-5"
+      class="container cost-list-box"
       v-if="carts.length > 0"
     >
-      <div class="d-flex row">
-        <div class="col-md-6 px-5">
+      <div class="row mobile-flex">
+        <div class="col-lg-6 col-md-12 client-form-box">
           <div class="form-data-box p-4">
             <h3 class="font-weight-bold mb-3">訂單資料</h3>
             <validation-observer
@@ -164,14 +164,12 @@
                     rows="5"
                     v-model.trim="form.message"></textarea>
                 </div>
-                <div class="d-flex flex-column-reverse
-                flex-md-row mt-4 justify-content-between
-                align-items-md-center align-items-end w-100">
+                <div class="sent-from-btn">
                   <router-link
                     to="/cart"
                     class="text-dark mt-md-0 mt-3">
                     <i class="fas fa-reply mr-2"></i>
-                    回到購物車
+                    返回購物車
                   </router-link>
                   <button
                     class="btn btn-check checkout float-right"
@@ -185,12 +183,18 @@
                     </i>
                     <span>送出訂單</span>
                   </button>
+                  <router-link
+                    to="/cart"
+                    class="m-return btn btn-outline-dark">
+                    <i class="fas fa-reply mr-2"></i>
+                    返回購物車
+                  </router-link>
                 </div>
               </form>
             </validation-observer>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
           <div class="mx-2 my-4 order-total-box">
             <h3 class="font-weight-bold mb-3">訂單總計</h3>
             <div
@@ -242,7 +246,7 @@
                     <div class="input-group mt-3 input-group-sm">
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control m-coupon"
                         v-model="coupon_code"
                         placeholder="請輸入優惠碼" />
                       <div class="input-group-append">
@@ -267,7 +271,7 @@
                   {{ cartTotal * (coupon.percent / 100) | currency }}
                 </span>
                 <span v-else>
-                  {{ (cartTotal + 80) * (coupon.percent / 100) | currency}}
+                  {{ (cartTotal + 80) * (coupon.percent / 100) | currency }}
                 </span>
               </p>
               <p
@@ -289,7 +293,7 @@
 </template>
 
 <script>
-import CartBanner from '@/components/front/CartBanner.vue';
+import CartBanner from '@/components/frontend/CartBanner.vue';
 import Toast from '@/alert/Toast';
 
 export default {

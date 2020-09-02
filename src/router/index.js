@@ -10,31 +10,42 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('@/views/front/Home.vue'),
+        component: () => import('@/views/frontend/Home.vue'),
       },
       {
         path: '/about',
-        component: () => import('@/views/front/About.vue'),
+        name: 'about',
+        component: () => import('@/views/frontend/About.vue'),
       },
       {
         path: '/products',
-        component: () => import('@/views/front/Products.vue'),
+        name: 'products',
+        component: () => import('@/views/frontend/Products.vue'),
       },
       {
         path: '/product/:id',
-        component: () => import('@/views/front/Product.vue'),
+        name: 'product',
+        component: () => import('@/views/frontend/Product.vue'),
+      },
+      {
+        path: '/favorite',
+        name: 'favorite',
+        component: () => import('@/views/frontend/Favorite.vue'),
       },
       {
         path: '/cart',
-        component: () => import('@/views/front/Cart.vue'),
+        name: 'cart',
+        component: () => import('@/views/frontend/Cart.vue'),
       },
       {
         path: '/order',
-        component: () => import('@/views/front/Order.vue'),
+        name: 'order',
+        component: () => import('@/views/frontend/Order.vue'),
       },
       {
         path: '/checkout/:orderId',
-        component: () => import('@/views/front/Checkout.vue'),
+        name: 'checkout',
+        component: () => import('@/views/frontend/Checkout.vue'),
       },
     ],
   },
@@ -45,26 +56,26 @@ const routes = [
   },
   {
     path: '/admin',
-    component: () => import('@/views/backstage/Dashboard.vue'),
+    component: () => import('@/views/backend/Dashboard.vue'),
     children: [
       {
         path: 'products',
-        component: () => import('@/views/backstage/Products.vue'),
+        component: () => import('@/views/backend/Products.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'orders',
-        component: () => import('@/views/backstage/Orders.vue'),
+        component: () => import('@/views/backend/Orders.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'coupons',
-        component: () => import('@/views/backstage/Coupons.vue'),
+        component: () => import('@/views/backend/Coupons.vue'),
         meta: { requiresAuth: true },
       },
       {
         path: 'storages',
-        component: () => import('@/views/backstage/Storages.vue'),
+        component: () => import('@/views/backend/Storages.vue'),
         meta: { requiresAuth: true },
       },
     ],

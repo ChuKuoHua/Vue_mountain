@@ -4,9 +4,9 @@
       <i class="loading-box"></i>
     </loading>
     <CartBanner />
-    <div class="container my-5">
+    <div class="container my-5 m-cart-box">
       <div class="row align-items-center">
-        <div class="col-md-8 commodity-box">
+        <div class="col-lg-8 commodity-box">
           <div v-if="carts.length > 0">
             <table class="mt-3">
               <thead class="font-weight-bold">
@@ -90,18 +90,19 @@
             </table>
           </div>
           <div class="mb-3 no-shop-box" v-else>
-            <p class="py-5 mt-5">
+            <p class="py-5 mt-3">
               哎呀！您的購物車是空的，趕快去挑選裝備吧！
             </p>
             <router-link
               to="/products"
-              class="text-dark">
-            <i class="fas fa-reply mr-2"></i>
+              class="text-dark"
+            >
+              <i class="fas fa-reply mr-2"></i>
               繼續購買
             </router-link>
           </div>
         </div>
-        <div class="col-md-4 my-3 card order-price">
+        <div class="col-lg-4 my-3 card order-price">
           <div class="card-body">
             <h3>訂單價格</h3>
             <div class="px-4 mt-3">
@@ -110,7 +111,7 @@
                 <span>{{ cartTotal | currency }}</span>
               </p>
               <p
-                class="d-flex justify-content-between"
+                class="d-flex fare justify-content-between"
                 v-if="(cartTotal !== 0)"
               >
                 <span>運費：</span>
@@ -154,11 +155,18 @@
         </div>
       </div>
     </div>
-    <section class="bg-cart-footer">
-      <div class="container py-5">
+    <section
+      class="bg-cart-footer"
+      v-if="!isLoading"
+    >
+      <div class="container pt-4">
         <h4 class="font-weight-bold text-center h4">登山知識</h4>
-        <div class="row mt-4">
-          <div class="col-md-4">
+        <div class="row mt-4 m-footer-cart">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="zoom-in"
+            data-aos-offset="200"
+          >
             <div
             class="knowledge-img position-relative"
             style="background-image: url(https://images.unsplash.com/photo-1590395115794-c960459589d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1419&q=80)">
@@ -168,7 +176,11 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="zoom-in"
+            data-aos-offset="200"
+          >
             <div
             class="knowledge-img position-relative"
             style="background-image: url(https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80)">
@@ -178,7 +190,10 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="zoom-in"
+          >
             <div
             class="knowledge-img position-relative"
             style="background-image: url(https://images.unsplash.com/photo-1552590854-7a7d89b018ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
@@ -195,7 +210,7 @@
 </template>
 
 <script>
-import CartBanner from '@/components/front/CartBanner.vue';
+import CartBanner from '@/components/frontend/CartBanner.vue';
 import Toast from '@/alert/Toast';
 
 export default {

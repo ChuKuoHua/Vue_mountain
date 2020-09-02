@@ -83,8 +83,8 @@
 
 <script>
 import $ from 'jquery';
-import CouponModal from '@/components/backstage/CouponModal.vue';
-import DelCouponModal from '@/components/backstage/DelCouponModal.vue';
+import CouponModal from '@/components/backend/CouponModal.vue';
+import DelCouponModal from '@/components/backend/DelCouponModal.vue';
 
 export default {
   data() {

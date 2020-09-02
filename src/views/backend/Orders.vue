@@ -94,7 +94,7 @@
 <script>
 import Pagination from '@/components/Pagination.vue';
 import Toast from '@/alert/Toast';
-import OrderModal from '@/components/backstage/OrderModal.vue';
+import OrderModal from '@/components/backend/OrderModal.vue';
 
 export default {
   components: {

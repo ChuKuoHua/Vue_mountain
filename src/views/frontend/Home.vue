@@ -2,7 +2,11 @@
   <div id="home">
     <div class="home-banner">
       <div class="container position-relative">
-        <div class="banner-tit text-center">
+        <div
+          class="banner-tit text-center"
+          data-aos="fade-right"
+          data-aos-once="false"
+        >
           <h1 class="mb-3">MOUNTAIN</h1>
           <p>人生的風景 最美麗的驚嘆</p>
           <router-link
@@ -20,9 +24,16 @@
       </div>
     </div>
     <div class="container">
-      <div class="row d-flex
-        justify-content-center align-items-center">
-        <section class="col-md-6 news-box" id="news">
+      <div class="row mr-0
+        justify-content-center align-items-center"
+      >
+        <div class="col-md-6 new-bg">
+        </div>
+        <section
+          class="col-md-6 news-box"
+          id="news"
+          data-aos="fade-left"
+        >
           <h3 class="font-weight-bolder text-center mb-3">最新消息</h3>
           <ul>
             <li>
@@ -47,8 +58,6 @@
             </li>
           </ul>
         </section>
-        <div class="col-md-6 left-new-bg">
-        </div>
       </div>
     </div>
     <div class="home-footer">
@@ -59,7 +68,7 @@
 
 <script>
 /* global $ */
-import HomeProducts from '@/components/front/HomeProducts.vue';
+import HomeProducts from '@/components/frontend/HomeProducts.vue';
 
 export default {
   components: {

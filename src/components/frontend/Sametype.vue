@@ -6,7 +6,7 @@
         :key="item.id"
       >
         <div
-        class="shopping border-0 shadow"
+        class="shopping border-0"
         @click.prevent="getDetail(item.id)">
           <div class="over-hidden">
             <div
@@ -48,6 +48,10 @@ export default {
       products: [],
       uuid: process.env.VUE_APP_UUID,
       swiperOption: {
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true,

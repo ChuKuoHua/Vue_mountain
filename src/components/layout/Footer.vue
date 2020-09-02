@@ -1,6 +1,6 @@
 <template>
   <footer class="position-relative footer-navbar">
-    <div class="container d-flex justify-content-between">
+    <div class="container rwd-footer">
       <div class="conn d-flex justify-content-between flex-column">
         <ul class="navbar-nav flex-row  justify-content-around py-2">
           <li>
@@ -32,12 +32,12 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://github.com/ChuKuoHua" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="https://www.facebook.com/profile.php?id=100003047166312" target="_blank">
               <i class="fab fa-facebook-square"></i>
             </a>
           </li>

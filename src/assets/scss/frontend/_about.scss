@@ -3,7 +3,7 @@
   background-position: center;
   background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/0zM7Gdr1mJ85LaWqeyhCkFRvTKQ2PZwHjuAYynGxUx6QgxCHztwpZmqToo7YODonlO460fvgRaa2m4r97R87340W76kyoFbuWOOHg2XWaVj1tGw290i9hIqNFa3wayga.jpg');
   height: 50vh;
-  .banner-tit{
+  .about-ban-tit{
     position: absolute;
     font-size: 28px;
     right: 155px;
@@ -16,13 +16,15 @@
       margin-bottom: 20px;
     }
   }
+  .m-about-ban-tit{
+    display: none;
+  }
 }
-.about-content{
+.about-content-box{
   background: $white;
-  display: flex;
   align-items: center;
   position: relative;
-  .left-content-bg{
+  .about-content-bg{
     background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/b8BQklA842P4ysgiCUDUygWbixeQBizBenrennyFKje7GpvpqXdpSFx7FkzGWeGxXkXpg6id01W0TIoE770x1btrZc5aAOpHutoMupE709cENrnG6ilF7zKIgOdowBli.png');
     height: 450px;
     opacity: .8;
@@ -47,18 +49,21 @@
       right: -95px;
     }
   }
-  .right-content-box{
+  .about-content{
     position: absolute;
     border: 3px solid $dark;
     padding: 5em 4em;
     right: -30px;
   }
-  .right-content{
+  .about-intro{
     padding: 0px 18px;
     text-align: justify;
     line-height: 28px;
     font-size: 20px;
   }
+}
+.m-about-box{
+  display: none;
 }
 .about-footer{
   background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Mu7xXLkyaBsS0vl98VrHQEYsN0HKsL2pDgypK2zq1vJXvWT2jzQnHz9oF8hnYqeeq0eXzyDCLILY9F0qeUchP5X3JF6lRCG8j467Wb1vHQFwQUrANjiHLimtuFruIYLh.jpg');

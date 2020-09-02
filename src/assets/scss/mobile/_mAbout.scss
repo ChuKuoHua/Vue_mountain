@@ -1,0 +1,51 @@
+@include desktop(){
+  .about-banner{
+    .about-ban-tit{
+      right: 50px;
+      top: 160px;
+    }
+  }
+  .about-content-box{
+    display: none;
+  }
+  .m-about-box{
+    display: inline;
+    .imgbox{
+      display: block;
+      margin: 20px auto;
+      width: 300px;
+      height: 200px;
+    }
+    .m-about-content{
+      margin-bottom: 20px;
+      text-align: justify;
+      letter-spacing: 1px;
+      line-height: 28px;
+    }
+  }
+}
+@include pad(){
+  .about-banner{
+    .about-ban-tit{
+      display: none;
+    }
+    .m-about-ban-tit{
+      display: block;
+      position: absolute;
+      font-size: 20px;
+      right: 50px;
+      top: 100px;
+      color: #f7f7f7;
+      text-shadow: 0 3px 10px #020202;
+      letter-spacing: 1px;
+      @include vrl;
+      P{
+        margin-left: 10px;
+        transform: skewY(10deg);
+      }
+      .text-y{
+        transform: skewY(10deg) translateY(30px);
+      }
+    }
+  }
+}

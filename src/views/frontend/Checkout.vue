@@ -1,70 +1,21 @@
 <template>
-  <div class="my-5 row">
-    <div class="col-md-10 p-0 m-auto">
-      <div class="success-box">
-        <section class="w-50 left-content">
-          <h5 class="order-logo">MOUNTAIN</h5>
-          <div class="vrl">
-            <p>感謝您的購買</p>
-            <br>
-            <p class="r-text">祝您登山愉悅</p>
-          </div>
-          <div class="mb-3">
-            <button
-              type="button"
-              class="btn font-weight-bolder"
-              data-toggle="modal"
-              data-target="#exampleModal">
-              <i class="fas fa-angle-right"></i>
-              查詢明細
-              <i class="fas fa-angle-left"></i>
-            </button>
-          </div>
-        </section>
-        <div class="w-50">
-          <div
-            class="right-content"
-            :style="{ backgroundImage:`url('https://images.unsplash.com/photo-1568454537842-d933259bb258?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')` }"
-          ></div>
-        </div>
-      </div>
-      <div class="pt-3">
-        <router-link
-          to="/products"
-          class="text-dark">
-          <i class="fas fa-reply mr-2"></i>
-          繼續購買
-        </router-link>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div
-      class="modal fade mt-5 customer-modal-box"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog mt-5 px-5">
-        <div class="modal-content">
-          <div class="modal-header py-2 bg-complete">
-            <h5
-            class="modal-title text-dark font-weight-bolder"
-            id="exampleModalLabel">購物明細</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close">
-              <span aria-hidden="true">
-                <i class="fas fa-times"></i>
-              </span>
-            </button>
-          </div>
-          <div class="modal-body p-0">
-            <div
-              class="px-4"
-            >
+  <div>
+    <loading :active.sync="isLoading">
+      <i class="loading-box"></i>
+    </loading>
+    <CartBanner />
+    <div class="container">
+      <div
+        class="my-5 my-md-4 my-sm row"
+        v-if="!order.paid">
+        <div class="col-lg-5 col-md-10 mt-3
+        order-data-box">
+          <section class="card">
+            <div class="complete-nav py-2">
+              <i class="fas fa-tasks"></i>
+              <h3 class="ml-2">訂單付款</h3>
+            </div>
+            <div class="px-4">
               <ul>
                 <li class="py-2">
                   <table class="mt-2 w-100">
@@ -93,7 +44,10 @@
                     </tbody>
                   </table>
                 </li>
-                <li class="py-2" style="border-top: 1px solid #00000024">
+                <li
+                  class="py-2"
+                  style="border-top: 1px solid #00000024"
+                >
                   <div
                     class="d-flex justify-content-between"
                     v-if="(order.amount < 1299)"
@@ -175,7 +129,9 @@
                             class="border-0 px-0 pt-0">付款狀態
                         </th>
                         <td class="text-right border-0 px-0 pt-0">
+                          <span class="text-danger" v-if="!order.paid">尚未付款</span>
                           <strong
+                            v-else
                             class="text-success"
                           >付款完成</strong>
                         </td>
@@ -185,17 +141,44 @@
                 </li>
               </ul>
             </div>
-          </div>
-          <div class="modal-footer p-1 bg-complete">
-            <p>成立訂單後約 3 - 5 的工作天出貨。</p>
-          </div>
+            <div class="px-4 py-3 footer-data-box bg-undone">
+              <a
+                href="#"
+                @click.prevent="comeBack"
+                class="text-dark"
+                v-if="order.paid === false"
+              >
+                <i class="fas fa-reply mr-2"></i>
+                回首頁
+              </a>
+              <div
+                class="text-right"
+                v-if="order.paid === false"
+              >
+                <button
+                  class="btn btn-outline-dark border-0 font-weight-bolder"
+                  @click.prevent="payOrder"
+                  :disabled="isProcessing">
+                  <i class="fas fa-spinner fa-spin"
+                    v-if="isProcessing">
+                  </i>
+                  確認付款
+                </button>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
+      <Successful
+        v-else
+      />
     </div>
   </div>
 </template>
 
 <script>
+import CartBanner from '@/components/frontend/CartBanner.vue';
+import Successful from '@/components/frontend/Successful.vue';
 import Toast from '@/alert/Toast';
 
 export default {
@@ -208,7 +191,12 @@ export default {
       isEnabled: false,
       uuid: process.env.VUE_APP_UUID,
       isLoading: false,
+      isProcessing: false,
     };
+  },
+  components: {
+    CartBanner,
+    Successful,
   },
   created() {
     this.orderId = this.$route.params.orderId;
@@ -234,6 +222,34 @@ export default {
           });
           this.isLoading = false;
         });
+    },
+    payOrder() {
+      const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/orders/${this.orderId}/paying`;
+      this.isProcessing = true;
+      this.$http.post(url)
+        .then((res) => {
+          if (res.data.data.paid) {
+            this.getOrder();
+            Toast.fire({
+              title: '付款成功',
+              icon: 'success',
+            });
+          }
+          this.isProcessing = false;
+        }).catch(() => {
+          Toast.fire({
+            title: '付款失敗，請稍後再試',
+            icon: 'error',
+          });
+          this.isProcessing = false;
+        });
+    },
+    comeBack() {
+      this.$router.push('/');
+      Toast.fire({
+        title: '尚未付款',
+        icon: 'warning',
+      });
     },
   },
 };

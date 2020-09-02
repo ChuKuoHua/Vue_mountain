@@ -27,7 +27,7 @@ input::-webkit-inner-spin-button {
 .commodity-box{
   border-top: 2px solid #ccc3c3;
   border-bottom: 2px solid #ccc3c3;
-  min-height: calc(60vh - 128px);
+  min-height: calc(50vh - 128px);
   p{
     letter-spacing: 5px;
     font-size: 18px;
@@ -179,6 +179,34 @@ input::-webkit-inner-spin-button {
   }
 }
 // form
+//表單樣式
+.order-color{
+  background: -webkit-linear-gradient(45deg, #6695bb, #56c1ae);
+  background: -o-linear-gradient(45deg, #6695bb, #56c1ae);
+  background: linear-gradient(45deg, #6695bb, #56c1ae);
+  h5{
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #f5f4f4;
+  }
+}
+.modal-body{
+  letter-spacing: 2px;
+  h4{
+    font-size: 20px;
+  }
+  label{
+    margin-bottom: 5px;
+  }
+}
+.cost-list-box{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.client-form-box{
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
 .form-data-box{
   box-shadow: 0 0 5px;
   border-radius: 5px;
@@ -208,7 +236,18 @@ input::-webkit-inner-spin-button {
   border-bottom: 1px solid #dee2e6 !important;
   border-top: 1px solid #dee2e6 !important;
 }
+.sent-from-btn{
+  width: 100%;
+  margin-top: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+}
 // 訂單付款
+.m-return{
+  display: none;
+}
 .order-data-box{
   margin: 0 auto;
   font-size: 12px;
@@ -238,6 +277,8 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: $white;
+    background-color: #e28b59;
   }
   .fa-check-circle,
   .fa-tasks{
@@ -297,6 +338,9 @@ input::-webkit-inner-spin-button {
   }
 }
 // 訂單完成 modal
+.m-success-box{
+  display: none;
+}
 .customer-modal-box{
   font-size: 14px;
 }
