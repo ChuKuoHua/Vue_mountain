@@ -3,126 +3,130 @@
     <div class="follow-banner">
       <h2 class="text-center">追蹤商品</h2>
     </div>
-    <div
-      class="container follow-box col-lg-6 col-md-12">
-      <loading :active.sync="isLoading">
-        <i class="loading-box"></i>
-      </loading>
-      <div class="follow-title">
-        <h3>我的收藏
-          <span>( {{ followProduct.length }} )</span>
-        </h3>
-        <select
-          v-if="followProduct.length > 0"
-          name="sortData"
-          id="sortData"
-          v-model="sortData"
-          class="form-control follow-sort mb-2"
-          @change="sortProduct()"
-        >
-          <option value="" disabled>商品排序</option>
-          <option value="highToLow">價格由高至低</option>
-          <option value="lowToHigh">價格由低至高</option>
-        </select>
-      </div>
-      <div
-        class="mb-5"
-        v-if="followProduct.length > 0"
-      >
+    <div class="container follow-box">
+      <div class="row">
         <div
-          class="mb-3"
-          v-for="item in followProduct"
-          :key="item.id"
-        >
+          class="col-lg-8 col-md-12 mx-auto">
+          <loading :active.sync="isLoading">
+            <i class="loading-box"></i>
+          </loading>
+          <div class="follow-title">
+            <h3>我的收藏
+              <span>( {{ followProduct.length }} )</span>
+            </h3>
+            <select
+              v-if="followProduct.length > 0"
+              name="sortData"
+              id="sortData"
+              v-model="sortData"
+              class="form-control follow-sort mb-2"
+              @change="sortProduct()"
+            >
+              <option value="" disabled>商品排序</option>
+              <option value="highToLow">價格由高至低</option>
+              <option value="lowToHigh">價格由低至高</option>
+            </select>
+          </div>
           <div
-            class="followItem"
-            data-aos="fade-right"
+            class="mb-5"
+            v-if="followProduct.length > 0"
           >
-            <div class="d-flex">
-              <router-link
-                :to="`/product/${ item.id }`"
+            <div
+              class="mb-3"
+              v-for="item in followProduct"
+              :key="item.id"
+            >
+              <div
+                class="followItem"
+                data-aos="fade-right"
               >
-                <img
-                  class="followItem-img"
-                  :src="item.imageUrl[0]"
-                  alt=""
-                >
-              </router-link>
-              <div class="followItem-content">
-                <h5>{{ item.title }}</h5>
-                <p>{{ item.content }}</p>
-                <p class="followItem-category">{{ item.category }}</p>
+                <div class="d-flex">
+                  <router-link
+                    :to="`/product/${ item.id }`"
+                  >
+                    <img
+                      class="followItem-img"
+                      :src="item.imageUrl[0]"
+                      alt=""
+                    >
+                  </router-link>
+                  <div class="followItem-content">
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.content }}</p>
+                    <p class="followItem-category">{{ item.category }}</p>
+                  </div>
+                </div>
+                <div class="followItem-cart">
+                  <span
+                    class="followItem-origin-price pr-2"
+                    v-if="item.origin_price !== 0">
+                    {{ item.origin_price | currency }}
+                  </span>
+                  <span class="pr-2 followItem-price">
+                    {{ item.price | currency }}
+                  </span>
+                  <button
+                    type="button"
+                    class="btn btn-check"
+                    :disabled=" status.loadingItem === item.id"
+                    @click="addToCart(item.id, item.num)"
+                    >
+                    <i class="fas fa-spinner fa-spin"
+                    v-if="item.id === status.loadingItem"/>
+                    加到購物車
+                  </button>
+                </div>
+                <div class="m-followItem-cart">
+                  <div class="m-fol-money">
+                    <span
+                      class="m-folItem-origin-price pr-2"
+                      v-if="item.origin_price !== 0">
+                      {{ item.origin_price | currency }}
+                    </span>
+                    <span class="pr-2 m-folItem-price">
+                      {{ item.price | currency }}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-folCart"
+                    :disabled=" status.loadingItem === item.id"
+                    @click="addToCart(item.id, item.num)"
+                    >
+                    <i class="fas fa-spinner fa-spin"
+                    v-if="item.id === status.loadingItem"/>
+                    加到購物車
+                  </button>
+                </div>
+                <button href="#"
+                  class="follow-close"
+                  @click.prevent="delFollow(item.id)">
+                  <i class="fas fa-times"></i>
+                </button>
               </div>
             </div>
-            <div class="followItem-cart">
-              <span
-                class="followItem-origin-price pr-2"
-                v-if="item.origin_price !== 0">
-                {{ item.origin_price | currency }}
-              </span>
-              <span class="pr-2 followItem-price">
-                {{ item.price | currency }}
-              </span>
-              <button
-                type="button"
-                class="btn btn-check"
-                :disabled=" status.loadingItem === item.id"
-                @click="addToCart(item.id, item.num)"
-                >
-                <i class="fas fa-spinner fa-spin"
-                v-if="item.id === status.loadingItem"/>
-                加到購物車
-              </button>
-            </div>
-            <div class="m-followItem-cart">
-              <div class="m-fol-money">
-                <span
-                  class="m-folItem-origin-price pr-2"
-                  v-if="item.origin_price !== 0">
-                  {{ item.origin_price | currency }}
-                </span>
-                <span class="pr-2 m-folItem-price">
-                  {{ item.price | currency }}
-                </span>
-              </div>
-              <button
-                type="button"
-                class="btn btn-folCart"
-                :disabled=" status.loadingItem === item.id"
-                @click="addToCart(item.id, item.num)"
-                >
-                <i class="fas fa-spinner fa-spin"
-                v-if="item.id === status.loadingItem"/>
-                加到購物車
-              </button>
-            </div>
-            <button href="#"
-              class="follow-close"
-              @click.prevent="delFollow(item.id)">
-              <i class="fas fa-times"></i>
-            </button>
+            <!-- 分頁 -->
+            <Pagination
+              class="text-right"
+              :pages="pagination"
+              @changePage="getProducts"
+              v-if="products.length >= 25"
+            ></Pagination>
+          </div>
+          <div v-else
+            class="my-5 no-follow">
+            <p>
+              目前沒有收藏任何商品唷！
+            </p>
+            <router-link
+              to="/products"
+              class="text-cyanine"
+            >
+              <i class="fas fa-reply mr-2"></i>
+              逛逛商品
+            </router-link>
           </div>
         </div>
-        <!-- 分頁 -->
-        <Pagination
-          class="text-right"
-          :pages="pagination"
-          @changePage="getProducts"
-          v-if="products.length >= 25"
-        ></Pagination>
-      </div>
-      <div v-else
-      class="my-5 no-follow">
-        <p>
-          目前沒有收藏任何商品唷！
-        </p>
-        <router-link
-          to="/products"
-          class="text-cyanine"
-        >
-          <i class="fas fa-reply mr-2"></i>
-          逛逛商品
-        </router-link>
       </div>
     </div>
     <section
