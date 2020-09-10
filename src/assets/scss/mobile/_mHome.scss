@@ -27,6 +27,7 @@
     }
   }
   .minor-img{
+    margin: 0 auto;
     &:hover > .primary-img{
       transform: translateX(0);
     }

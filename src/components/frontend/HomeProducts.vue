@@ -1,12 +1,12 @@
 <template>
-  <section class="container-fluid">
+  <section class="container">
     <h4 class="font-weight-bold mb-5 text-center h4">商品介紹</h4>
     <div class="row mt-4 align-items-center">
       <div
         class="int-mb col-lg-6 col-md-12"
       >
         <div
-          class="minor-img mx-auto"
+          class="minor-img"
           style="background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/e9DZMWGq4LyoKDFKtB28F5rih5BgpgKHP5CKMk8YzNYGav2S7xgb7uyOQ55DTYNg7uxgqayP0OjfWXFwEdxQqKBN0wvreRRP3s8NvDeQlPQcbyYe1s1exngh7G8rtcgb.png)"
         >
           <div class="introTitle">
@@ -41,7 +41,7 @@
         class="int-mb col-lg-6 col-md-12"
       >
         <div
-          class="minor-img mx-auto"
+          class="minor-img ml-auto"
           style="background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/MAo39YjDoR2Vx27GCgEz0QeVhsF8alInIjQBP04WBfixUAwzGA9kt4UNe4F9gxwsApJUQIqExZgjHIbYhdODWKDDlWggdsOk8A3JhLq0q08bW2WVL9Eh069V9HFsxC0s.jpg)"
         >
           <div class="introTitle poles-title">
@@ -76,7 +76,7 @@
         class="int-mb col-lg-6 col-md-12"
       >
         <div
-          class="minor-img mx-auto"
+          class="minor-img"
           style="background-image: url(https://images.unsplash.com/photo-1502294624983-4ba589803a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80)"
         >
           <div class="introTitle">
