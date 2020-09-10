@@ -10,12 +10,12 @@
         v-else
       >{{ filterType }}</h2>
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <loading :active.sync="isLoading">
         <i class="loading-box"></i>
       </loading>
       <div class="row rwd-product-box">
-        <nav class="col-md-3 p-0">
+        <nav class="col-md-3 pr-md-0">
           <ul
             class="list-group sticky-top"
           >
@@ -97,8 +97,6 @@
                 >
                   查看更多
                 </router-link>
-              </div>
-              <div class="position-relative overflow-hidden">
                 <div
                   title="收藏"
                   class="icon-tags"
@@ -109,6 +107,8 @@
                   </i>
                   <i v-else class="fas fa-bookmark"></i>
                 </div>
+              </div>
+              <div class="position-relative">
                 <h5 class="text-center card-title font-weight-bold">
                   {{ item.title }}
                 </h5>

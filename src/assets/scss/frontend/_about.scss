@@ -29,12 +29,13 @@
     height: 450px;
     opacity: .8;
     background-position: center;
+    background-size: cover;
     -moz-transform:scaleX(-1);
     -webkit-transform:scaleX(-1);
     -o-transform:scaleX(-1);
     transform:scaleX(-1);
   }
-  img{
+  .imgbox{
     height: 280px;
     position: absolute;
     opacity: 0;
@@ -43,6 +44,8 @@
     right: 0px;
     box-shadow: 0 0 5px;
     transition: all 1s;
+    background-size: cover;
+    background-position: center;
     &.active{
       z-index: 10;
       opacity: 1;

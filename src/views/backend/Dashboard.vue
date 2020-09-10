@@ -6,7 +6,7 @@
     <Navbar />
     <div>
       <Sidebar />
-      <router-view :token="token" v-if="checkSuccess"></router-view>
+      <router-view v-if="checkSuccess"></router-view>
     </div>
   </div>
 </template>

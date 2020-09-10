@@ -24,6 +24,11 @@ input::-webkit-inner-spin-button {
 .cart-footer-bg{
   background-color: #bcd6d2;
 }
+.none-commodity{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  min-height: auto !important;
+}
 .commodity-box{
   border-top: 2px solid #ccc3c3;
   border-bottom: 2px solid #ccc3c3;

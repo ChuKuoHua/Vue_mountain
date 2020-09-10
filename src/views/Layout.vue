@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header />
-    <router-view class="content-pt"></router-view>
+    <router-view
+    class="content-pt"></router-view>
     <ScrollTop :style="{ opacity: isOpacity }"/>
     <Footer />
   </div>

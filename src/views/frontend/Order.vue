@@ -236,8 +236,14 @@
                     class="border-0 p-0 font-weight-normal"
                   >運費</th>
                   <td class="text-right border-0 p-0">
-                    <span v-if="(cartTotal > 1299)"> NT 0</span>
-                    <span v-else> NT 80</span>
+                    <div v-if="coupon.enabled">
+                      <span v-if="((cartTotal * (coupon.percent / 100)) > 1299)"> NT 0</span>
+                      <span v-else> NT 80</span>
+                    </div>
+                    <div v-else>
+                      <span v-if="(cartTotal > 1299)"> NT 0</span>
+                      <span v-else> NT 80</span>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -267,11 +273,11 @@
               <p class="font-weight-bold">總計</p>
               <p v-if="coupon.enabled"
                 class="font-weight-bold">
-                <span v-if="cartTotal >= 1299">
+                <span v-if="(cartTotal * (coupon.percent / 100)) >= 1299">
                   {{ cartTotal * (coupon.percent / 100) | currency }}
                 </span>
                 <span v-else>
-                  {{ (cartTotal + 80) * (coupon.percent / 100) | currency }}
+                  {{ (cartTotal * (coupon.percent / 100)) + 80 | currency }}
                 </span>
               </p>
               <p

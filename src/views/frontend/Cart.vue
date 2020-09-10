@@ -6,7 +6,10 @@
     <CartBanner />
     <div class="container my-5 m-cart-box">
       <div class="row align-items-center">
-        <div class="col-lg-8 commodity-box">
+        <div
+          class="col-lg-8 commodity-box"
+          :class="{ 'col-lg-12': fareTotal <= 0, 'none-commodity': fareTotal <= 0 }"
+        >
           <div v-if="carts.length > 0">
             <table class="mt-3">
               <thead class="font-weight-bold">
@@ -102,7 +105,9 @@
             </router-link>
           </div>
         </div>
-        <div class="col-lg-4 my-3 card order-price">
+        <div
+        class="col-lg-4 my-3 card order-price"
+        :class="{ 'd-none': fareTotal <= 0 }">
           <div class="card-body">
             <h3>訂單價格</h3>
             <div class="px-4 mt-3">
@@ -165,7 +170,6 @@
           <div
             class="col-lg-4 col-md-6 mb-4"
             data-aos="zoom-in"
-            data-aos-offset="200"
           >
             <div
             class="knowledge-img position-relative"
@@ -179,7 +183,6 @@
           <div
             class="col-lg-4 col-md-6 mb-4"
             data-aos="zoom-in"
-            data-aos-offset="200"
           >
             <div
             class="knowledge-img position-relative"
@@ -261,7 +264,6 @@ export default {
       }
     },
     quantityUpdata(id, num) {
-      this.isLoading = true;
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/shopping`;
       const data = {
         product: id,
@@ -269,7 +271,6 @@ export default {
       };
       this.$http.patch(url, data)
         .then(() => {
-          this.isLoading = false;
           this.getCart();
         });
     },

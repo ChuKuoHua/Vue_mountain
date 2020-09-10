@@ -52,7 +52,7 @@ Vue.use(VueAwesomeSwiper);
 new Vue({
   created() {
     AOS.init({
-      offset: 150,
+      offset: 120,
       once: true,
       duration: 1500,
     });

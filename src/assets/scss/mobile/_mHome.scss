@@ -1,14 +1,17 @@
 @include desktop(){
   // banner
-  .home-banner{
+  .home-banner,.home-banner-two{
     height: 50vh;
   }
-  .banner-tit{
-    font-size: 28px !important;
-    top: 200px !important;
-    h1{
-      font-size: 20px;
-      font-family: 'Audiowide', cursive;
+  .banner-tit-box{
+    top: 190px !important;
+    left: 30px !important;
+    .banner-tit{
+      font-size: 28px !important;
+      h1{
+        font-size: 20px;
+        font-family: 'Audiowide', cursive;
+      }
     }
   }
   .down-box{
@@ -23,25 +26,83 @@
       margin-bottom: 1.2em;
     }
   }
+  .minor-img{
+    &:hover > .primary-img{
+      transform: translateX(0);
+    }
+  }
 }
 @include pad(){
   .news-box{
     margin-bottom: 1em;
   }
-  .new-bg{
-    display: none;
+  .int{
+    h5{
+      &::after{
+        right: 250px !important;
+      }
+      &::before{
+        left: 250px !important;
+      }
+    }
   }
 }
 @include iphone(){
-  .banner-tit {
-    font-size: 20px !important;
+  .news-group{
+    display: none;
+  }
+  .m-news-group{
+    display: block;
+  }
+  .swiper-pb{
+    padding-bottom: 1em !important;
+  }
+  .banner-tit-box {
+    top: 150px !important;
+    left: 40px !important;
+    .banner-tit{
+      font-size: 20px !important;
+      p{
+        margin-bottom: 20px;
+      }
+      .go-btn{
+        font-size: 18px;
+        float: none !important;
+      }
+    }
+  }
+  .news-box h4{
+    margin-bottom: .5rem !important;
+  }
+  .minor-img {
+    width: 70%;
+    height: 220px;
+    .primary-img{
+      top: 20%;
+      height: 70%;
+    }
+    .introTitle > h4{
+      font-size: 22px;
+    }
+    &:hover > .primary-img{
+      transform: translateX(0);
+    }
+  }
+  .int{
+    h5{
+      &::after,&::before{
+        display: none;
+      }
+    }
+    .btn-outline-dark{
+      margin-top: 1em !important;
+      padding: 15px !important;
+    }
+  }
+}
+@include other(){
+  .banner-tit-box {
     top: 100px !important;
-    p{
-      margin-bottom: 20px;
-    }
-    .go-btn{
-      font-size: 18px;
-      float: none !important;
-    }
+    left: 20px !important;
   }
 }

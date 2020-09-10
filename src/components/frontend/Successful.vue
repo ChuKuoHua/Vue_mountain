@@ -133,11 +133,11 @@
                 <li class="pt-2 d-flex justify-content-between border-0">
                   <p>總金額</p>
                   <p class="text-right">
-                    <span v-if = "order.amount >= 1299">
-                      {{ order.amount | currency }}
+                    <span v-if="order.amount < 1299">
+                      {{ order.amount + 80 | currency }}
                     </span>
                     <span v-else>
-                      {{ order.amount + 72 | currency }}
+                      {{ order.amount | currency }}
                     </span>
                   </p>
                 </li>

@@ -41,7 +41,14 @@
               {{ item.payment }}
             </td>
             <td>
-              {{ item.amount | currency }}
+              <p>
+                <span v-if = "item.amount >= 1299">
+                  {{ item.amount | currency }}
+                </span>
+                <span v-else>
+                  {{ item.amount + 80 | currency }}
+                </span>
+              </p>
             </td>
             <td class="text-left">
               <div class="custom-control custom-switch">

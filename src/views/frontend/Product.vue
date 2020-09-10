@@ -137,21 +137,34 @@
           id="profile" role="tabpanel"
           aria-labelledby="profile-tab"
         >
-          <Problem />
+          <div>
+            <ul>
+              <li>每次購物滿 1299 元以上免運費，未達 1299 元 需加付 80 元運費。</li>
+              <li>出貨時間為 2-3。大型商品(如：帳篷等)以貨運公司配送。</li>
+              <li>貨品均一年保固免費維修。</li>
+            </ul>
+          </div>
         </div>
         <div
           class="tab-pane fade return"
           id="return" role="tabpanel"
           aria-labelledby="return-tab"
         >
-          <ReturnNotice />
+          <div>
+            <p>
+              網路購物的消費者，享有商品貨到日起七天猶豫期。<br>
+              但猶豫期並非試用期，所以，您所退回的商品必須是全新的狀態。
+            </p>
+          </div>
         </div>
       </section>
-      <section class="col-md-12 sametype-box mb-4">
+      <section class="row mb-4">
+        <div class="col-md-12">
         <h5 class="font-weight-bold mb-3 h5">相關商品</h5>
         <Sametype
           :product="product"
           @update="getProduct" />
+        </div>
       </section>
     </div>
   </div>
@@ -160,14 +173,10 @@
 <script>
 import Toast from '@/alert/Toast';
 import Sametype from '@/components/frontend/Sametype.vue';
-import Problem from '@/components/frontend/Problem.vue';
-import ReturnNotice from '@/components/frontend/ReturnNotice.vue';
 
 export default {
   components: {
     Sametype,
-    Problem,
-    ReturnNotice,
   },
   data() {
     return {

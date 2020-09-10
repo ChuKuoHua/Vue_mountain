@@ -8,9 +8,6 @@
     width: 48%;
     max-width: 48%;
   }
-  .icon-tags{
-    left: 10px;
-  }
   .origin-price-f{
     font-size:12px !important;
   }
@@ -22,6 +19,9 @@
   }
 }
 @include pad() {
+  .products-banner{
+    margin-bottom: 0rem;
+  }
   .rwd-product-box{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -30,7 +30,6 @@
   // menu
   .sticky-top{
     margin-bottom: 1em;
-    margin: 0 15px;
   }
   // sort
   .sortData-box{
@@ -60,9 +59,7 @@
   .card-flex{
     width: 100%;
     max-width: 100%;
-  }
-  .icon-tags {
-    left: 30px;
-    font-size: 28px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

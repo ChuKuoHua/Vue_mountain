@@ -13,3 +13,8 @@
       @content;
   }
 }
+@mixin other{
+  @media (max-width:375px) {
+      @content;
+  }
+}

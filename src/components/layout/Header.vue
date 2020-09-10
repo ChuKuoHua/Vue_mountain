@@ -1,44 +1,50 @@
 <template>
   <header class="header-navbar">
     <nav class="container d-flex justify-content-between">
-      <div class="moblie-menu" id="moblie-menu">
+      <div class="moblie-menu" id="moblie-menu" @click.prevent="openMenu">
         <i class="fas fa-bars"></i>
       </div>
-      <div class="aside position-relative">
+      <div
+        class="aside position-relative"
+      >
+        <div class="m-menu-sidebar" @click.prevent="closeMenu">
+        </div>
         <aside>
-          <a href="#" class="m-close" id="m-close">
-            <i class="fas fa-times"></i>
-          </a>
-          <ul class="m-menu">
-            <li>
-              <router-link
-                to="/"
-              >首頁</router-link>
-            </li>
-            <li>
-              <router-link
-                to="/products"
-              >商品列表</router-link>
-            </li>
-            <li>
-              <router-link
-                to="/about"
-              >關於我們</router-link>
-            </li>
-            <li>
-              <router-link
-                to="/favorite"
-              >收藏商品</router-link>
-            </li>
-            <li>
-              <router-link
-                to="/cart"
-              >
-                購物車
-                <span class="m-cart float-right">{{ cart }}</span>
-              </router-link>
-            </li>
-          </ul>
+          <div class="m-menu-box">
+            <a href="#" class="m-close" id="m-close" @click.prevent="closeMenu">
+              <i class="fas fa-times"></i>
+            </a>
+            <ul class="m-menu">
+              <li>
+                <router-link
+                  to="/"
+                >首頁</router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/products"
+                >商品列表</router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/about"
+                >關於我們</router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/favorite"
+                >收藏商品</router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/cart"
+                >
+                  購物車
+                  <span class="m-cart float-right">{{ cart }}</span>
+                </router-link>
+              </li>
+            </ul>
+          </div>
         </aside>
       </div>
       <div class="logo">
@@ -108,16 +114,16 @@ export default {
           this.cart = res.data.data.length;
         });
     },
+    openMenu() {
+      $('body').addClass('open');
+      $('.m-menu-sidebar').addClass('active');
+    },
+    closeMenu() {
+      $('body').removeClass('open');
+      $('.m-menu-sidebar').removeClass('active');
+    },
   },
   mounted() {
-    $('#moblie-menu').click((e) => {
-      e.preventDefault();
-      $('body').addClass('open');
-    });
-    $('#m-close').click((e) => {
-      e.preventDefault();
-      $('body').removeClass('open');
-    });
     window.addEventListener('scroll', () => {
       this.scrollTop = document.documentElement.scrollTop;
       if (this.scrollTop > 0) {

@@ -15,6 +15,7 @@ $disabled:#272a2b;
   @include ban-box;
   background-position: center bottom;
   background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/bD13wjLC2c88zeTFaDTJmb1GRrAvKxH9MkEnuZuTlhsl4OJODgDdNo84HVvofktfrNobXqXFRugtoJ5denu1GRanE6XRqlksXdjr55QhmRGE7pBmZUUCsbaXgqYtfkmo.png');
+  margin-bottom: 2.6rem;
   h2{
     @include ban-tit;
   }
@@ -24,7 +25,7 @@ $disabled:#272a2b;
   position: relative;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 // 商品排序
 .sortData-box{
@@ -138,10 +139,12 @@ $disabled:#272a2b;
 // 商品
 .icon-tags{
   position: absolute;
-  left: 25px;
-  top: -8px;
-  font-size: 26px;
+  right: 25px;
+  top: -10px;
+  font-size: 32px;
+  color: #d63e3e;
   cursor: pointer;
+  text-shadow: 0 1px 3px #b14c4c;
 }
 .card-title{
   color: #2a2e2d;

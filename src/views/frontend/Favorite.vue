@@ -135,7 +135,6 @@
           <div
             class="col-lg-4 col-md-6 mb-4"
             data-aos="zoom-in"
-            data-aos-offset="200"
           >
             <div
             class="knowledge-img position-relative"
@@ -149,7 +148,6 @@
           <div
             class="col-lg-4 col-md-6 mb-4"
             data-aos="zoom-in"
-            data-aos-offset="200"
           >
             <div
             class="knowledge-img position-relative"

@@ -1,11 +1,11 @@
 <template>
-  <div id="home">
-    <div class="home-banner">
-      <div class="container position-relative">
+  <div id="home" class="home-bg">
+    <Swiper ref="mySwiper" class="swiper-pb" :options="swiperOption">
+      <swiper-slide class="home-banner"></swiper-slide>
+      <swiper-slide class="home-banner-two"></swiper-slide>
+      <div class="container banner-tit-box">
         <div
           class="banner-tit text-center"
-          data-aos="fade-right"
-          data-aos-once="false"
         >
           <h1 class="mb-3">MOUNTAIN</h1>
           <p>人生的風景 最美麗的驚嘆</p>
@@ -22,43 +22,91 @@
           <i class="fas fa-chevron-down"></i>
         </a>
       </div>
-    </div>
-    <div class="container">
-      <div class="row mr-0
+      <div class="swiper-pagination swiper-mt" slot="pagination"></div>
+    </Swiper>
+    <div class="container pb-2">
+      <div class="row mx-0
         justify-content-center align-items-center"
       >
-        <div class="col-md-6 new-bg">
-        </div>
         <section
-          class="col-md-6 news-box"
+          class="col-lg-8 col-md-12 news-box"
           id="news"
-          data-aos="fade-left"
         >
-          <h3 class="font-weight-bolder text-center mb-3">最新消息</h3>
-          <ul>
-            <li>
+          <h3 class="font-weight-bolder text-center h4 mb-3">最新消息</h3>
+          <ul class="news-group">
+            <li data-aos="fade-left">
+              <p>
+                <span class="date-new mr-2">2020 / 07 / 19</span>
+                店長順利歸來，每人享有 7 折優惠：C7LI9M20BER
+              </p>
+            </li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="50">
+              <p>
+                <span class="date-new mr-2">2020 / 07 / 05</span>
+                店長成功登上世界最高峰，商品全面 85 折
+              </p>
+            </li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="100">
+              <p>
+                <span class="date-new mr-2">2020 / 06 / 25</span>
+                只要金額滿 1299 元，享有免運優惠
+              </p>
+            </li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="150">
+              <p>
+                <span class="date-new mr-2">2020 / 06 / 19</span>
+                MOUNTAIN 電商即將上市
+              </p>
+            </li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="200">
+              <p>
+                <span class="date-new mr-2">2020 / 05 / 19</span>
+                MOUNTAIN 整修中，敬請期待！
+              </p>
+            </li>
+          </ul>
+          <ul class="m-news-group">
+            <li data-aos="fade-left">
               <p class="date-new">2020 / 07 / 19</p>
               <p>店長順利歸來，每人享有 7 折優惠：C7LI9M20BER</p>
             </li>
-            <li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="50">
               <p class="date-new">2020 / 07 / 05</p>
               <p>店長成功登上世界最高峰，商品全面 85 折</p>
             </li>
-            <li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="100">
               <p class="date-new">2020 / 06 / 25</p>
               <p>只要金額滿 1299 元，享有免運優惠</p>
             </li>
-            <li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="150">
               <p class="date-new">2020 / 06 / 19</p>
-              <p>MOUNTAIN 店商即將上市</p>
+              <p>MOUNTAIN 電商即將上市</p>
             </li>
-            <li>
+            <li
+              data-aos="fade-left"
+              data-aos-delay="200">
               <p class="date-new">2020 / 05 / 19</p>
-              <p>祝各位都能順利完成最終作業~</p>
+              <p>MOUNTAIN 整修中，敬請期待！</p>
             </li>
           </ul>
         </section>
       </div>
+    </div>
+    <div class="divider-bg" style="background-image: url(https://images.unsplash.com/photo-1599370816632-28f943f2c306?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
     </div>
     <div class="home-footer">
       <HomeProducts />
@@ -69,10 +117,30 @@
 <script>
 /* global $ */
 import HomeProducts from '@/components/frontend/HomeProducts.vue';
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 
 export default {
+  data() {
+    return {
+      swiperOption: {
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets: true,
+        },
+      },
+    };
+  },
   components: {
     HomeProducts,
+    Swiper,
+    SwiperSlide,
   },
   methods: {
     scrollNews() {

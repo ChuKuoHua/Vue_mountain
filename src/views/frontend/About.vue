@@ -23,7 +23,10 @@
         <div class="col-lg-6 col-md-12 p-0 position-relative">
           <div class="about-content-bg">
           </div>
-          <img class="imgbox" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/8NhW84lmcoCX3bbWXqjV38EbiuL9TkPbFJlMtNyjCRS1UO7DVggjnGQOoDuoqxbxNuFnUp2x8S14bo6OYa0IuwwlLaNu2EXM638pYOKKLUYnI6MFLdwKVUUgtTLc5W7M.jpg" alt="">
+          <div
+            class="imgbox"
+            style="background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/8NhW84lmcoCX3bbWXqjV38EbiuL9TkPbFJlMtNyjCRS1UO7DVggjnGQOoDuoqxbxNuFnUp2x8S14bo6OYa0IuwwlLaNu2EXM638pYOKKLUYnI6MFLdwKVUUgtTLc5W7M.jpg)"
+          ></div>
         </div>
         <article class="col-lg-6 col-md-12 about-content">
           <p class="about-intro">
@@ -34,13 +37,12 @@
           </p>
         </article>
       </div>
-      <div class="m-about-box">
-        <article class="col-lg-6 col-md-12 m-about-content">
-          <img
+      <div class="m-about-box row">
+        <article class="col-md-12 m-about-content">
+          <div
             class="imgbox"
-            src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/8NhW84lmcoCX3bbWXqjV38EbiuL9TkPbFJlMtNyjCRS1UO7DVggjnGQOoDuoqxbxNuFnUp2x8S14bo6OYa0IuwwlLaNu2EXM638pYOKKLUYnI6MFLdwKVUUgtTLc5W7M.jpg"
-            alt=""
-          >
+            style="background-image: url(https://hexschool-api.s3.us-west-2.amazonaws.com/custom/8NhW84lmcoCX3bbWXqjV38EbiuL9TkPbFJlMtNyjCRS1UO7DVggjnGQOoDuoqxbxNuFnUp2x8S14bo6OYa0IuwwlLaNu2EXM638pYOKKLUYnI6MFLdwKVUUgtTLc5W7M.jpg)"
+          ></div>
           <p
           class="m-about-content"
           data-aos="zoom-in">
