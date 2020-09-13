@@ -1,4 +1,4 @@
-# mountain
+# MOUNTAIN
 以登山為主題的電商網站。
 
 Demo：https://chukuohua.github.io/Vue_mountain/#
