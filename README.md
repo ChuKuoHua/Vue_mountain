@@ -1,5 +1,5 @@
 # mountain
-以登山為主題的電商網站，除了使用 Vue 外，也有著 RWD 及 SPA 的電商網站。具有產品頁、產品介紹、購物車、追蹤商品等完善的購物頁面。
+以登山為主題的電商網站。
 
 Demo：https://chukuohua.github.io/Vue_mountain/#
 ## 使用技術
