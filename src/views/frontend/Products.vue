@@ -64,6 +64,20 @@
                 </li>
               </ul>
             </li>
+            <li
+              class="list-group-item p-xy-0 des-list-group"
+              v-for="item in category"
+              :key="item">
+              <a
+                data-toggle="tab"
+                href="#"
+                class="list-btn"
+                @click.prevent="filterType = item"
+                :class="{ active: item === filterType}"
+              >
+                {{ item }}
+              </a>
+            </li>
           </ul>
         </nav>
         <div class="col-md-9 position-relative">

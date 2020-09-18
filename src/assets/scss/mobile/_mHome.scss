@@ -32,20 +32,24 @@
       transform: translateX(0);
     }
   }
+  .intro-box .int{
+    text-align: center;
+    text-align: center;
+    padding: 0 1.7em;
+    p{
+      font-size: 18px;
+    }
+  }
+  .int{
+    .btn-outline-dark{
+      width: 100%;
+      margin-top: 1em !important;
+    }
+  }
 }
 @include pad(){
   .news-box{
     margin-bottom: 1em;
-  }
-  .int{
-    h5{
-      &::after{
-        right: 250px !important;
-      }
-      &::before{
-        left: 250px !important;
-      }
-    }
   }
 }
 @include iphone(){
@@ -87,17 +91,6 @@
     }
     &:hover > .primary-img{
       transform: translateX(0);
-    }
-  }
-  .int{
-    h5{
-      &::after,&::before{
-        display: none;
-      }
-    }
-    .btn-outline-dark{
-      margin-top: 1em !important;
-      padding: 15px !important;
     }
   }
 }

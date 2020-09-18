@@ -22,7 +22,7 @@
 }
 @mixin btn-active{
   color: $light-org;
-  font-weight: bold;
+  font-weight: bolder;
   border-left: 5px solid;
 }
 @mixin vrl{

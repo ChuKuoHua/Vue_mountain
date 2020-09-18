@@ -63,3 +63,11 @@
     margin-right: 0;
   }
 }
+@include iphone(){
+  .des-list-group{
+    display: none;
+  }
+  .dropdown{
+    display: inline;
+  }
+}

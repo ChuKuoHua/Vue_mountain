@@ -264,6 +264,7 @@ export default {
       }
     },
     quantityUpdata(id, num) {
+      this.isLoading = true;
       const url = `${process.env.VUE_APP_APIPATH}/${this.uuid}/ec/shopping`;
       const data = {
         product: id,
@@ -272,6 +273,7 @@ export default {
       this.$http.patch(url, data)
         .then(() => {
           this.getCart();
+          this.isLoading = false;
         });
     },
     removeCartItem(id) {

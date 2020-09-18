@@ -106,7 +106,8 @@
         </section>
       </div>
     </div>
-    <div class="divider-bg" style="background-image: url(https://images.unsplash.com/photo-1599370816632-28f943f2c306?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+    <div class="divider-bg">
+      <h3 class="font-weight-bold">商品專區</h3>
     </div>
     <div class="home-footer">
       <HomeProducts />
